@@ -2,6 +2,7 @@
 
 namespace App\Models\Spaces;
 
+use App\Models\Spaces\Mixture;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
@@ -18,4 +19,9 @@ class Space extends Model
 		'geoeconomic_zone_id',
 		'mixture_id'
    ];
+
+   public function mixture()
+   {
+   	return $this->belongsTo(Mixture::class);
+   }
 }

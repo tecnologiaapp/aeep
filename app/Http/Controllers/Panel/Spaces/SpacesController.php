@@ -16,7 +16,8 @@ class SpacesController extends Controller
    */
    public function index()
    {
-   //
+      $spaces = Space::with('mixture')->latest()->get();
+      return view('panel.points.index', compact('spaces'));
    }
 
    /**
@@ -55,9 +56,9 @@ class SpacesController extends Controller
    * @param  int  $id
    * @return \Illuminate\Http\Response
    */
-   public function show($id)
+   public function show(Space $space)
    {
-   //
+      return view('panel.points.show', compact('space'));
    }
 
    /**

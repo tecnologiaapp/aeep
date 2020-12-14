@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Panel\Spaces;
 
 use App\Http\Controllers\Controller;
+use App\Models\Spaces\EconomicActivity;
 use App\Models\Spaces\Mixture;
 use App\Models\Spaces\Space;
 use Illuminate\Http\Request;
@@ -58,7 +59,8 @@ class SpacesController extends Controller
    */
    public function show(Space $space)
    {
-      return view('panel.points.show', compact('space'));
+      $economic_activities = EconomicActivity::all();
+      return view('panel.points.show', compact(['space', 'economic_activities']));
    }
 
    /**

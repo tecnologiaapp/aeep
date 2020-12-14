@@ -15,7 +15,7 @@ class CreateConfigurationsTable extends Migration
     {
         Schema::create('configurations', function (Blueprint $table) {
             $table->id();
-            $table->float('current_ipc');
+            $table->decimal('current_ipc');
             $table->tinyInteger('iva');
             $table->timestamps();
         });

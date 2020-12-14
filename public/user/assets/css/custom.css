@@ -1,0 +1,42 @@
+.app-banner-area .app-bennr-text span {
+    font-size: 18px;
+    color: #242424;
+    font-weight: 500;
+    display: inline-block;
+    margin-bottom: 30px;
+}
+
+.app-banner-area .app-bennr-text .app-btn .app-btn-1 {
+    background-color: #242424;
+    border: 1px solid #c7eeff;
+    color: #ffffff;
+}
+
+.app-banner-area .app-bennr-text .app-btn .app-btn-1:hover {
+    background-color: #ffffff;
+    color: #242424;
+}
+
+.app-banner-area .app-bennr-text .app-btn .app-btn-2 {
+    border: 1px solid #242424;
+    color: #242424;
+}
+
+.app-banner-area .app-bennr-text .app-text h3 {
+    font-size: 44px;
+    position: absolute;
+    left: 0;
+    padding-right: 10px;
+    border-right: 1px solid #c1bfcb;
+    color: #242424;
+}
+
+.main-navbar.app-nav .nav-btn .bg-main {
+    background-color: #ffffff;
+    color: #242424;
+}
+
+.app-banner-area .app-bennr-text .app-btn .app-btn-2:hover {
+    background-color: #2d2929;
+    color: #ffffff;
+}

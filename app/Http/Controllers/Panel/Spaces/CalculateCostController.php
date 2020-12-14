@@ -4,7 +4,9 @@ namespace App\Http\Controllers\Panel\Spaces;
 
 use App\Http\Controllers\Controller;
 use App\Models\Configuration;
+use App\Models\Spaces\EconomicActivity;
 use App\Models\Spaces\GeoeconomicZone;
+use App\Models\Spaces\Mixture;
 use App\Models\Spaces\Space;
 use Illuminate\Http\Request;
 
@@ -46,11 +48,11 @@ class CalculateCostController extends Controller
 
       //3. Validar la temporada y asignar el costo
       if ($month == 1 | $month == 2) {
-         $period_cost = 0;
+         $period_percentage = 0;
       } else if ($month == 7 | $month == 8 | $month == 10 | $month == 12){
-         $period_cost = 10;
+         $period_percentage = 10;
       } else {
-         $period_cost = 5;
+         $period_percentage = 5;
       }
 
       //4. Obtener la configuración
@@ -59,20 +61,49 @@ class CalculateCostController extends Controller
       //5. Obtener el valor de la zona geoeconómica
       $geoeconomic_zone_price = GeoeconomicZone::where('code', $space->geoeconomic_zone_id)->pluck('price')->first();
 
-      //6. Relizar los cálculos
+      //6. Obtener el porcentaje de cobro de la mixtura
+      $mixture_collection_percentage = Mixture::whereId($space->mixture_id)->pluck('collection_percentage')->first();
+
+      //7. Obtener el porcentaje de cobro de la actividad específica
+      $activity_value_collection_percentage = EconomicActivity::whereId($request->activity)->pluck('collection_percentage')->first();
+
+      /*
+         8. Relizar los cálculos
+      */
+         
       //Costo de sostenimiento
       $sustaining_cost = ($configuration['current_ipc']/88.05)*5557;
 
-
-
-
-
       //Base del cálculo
-      $calculation_basis = ($configuration['current_ipc']*$geoeconomic_zone_price)*$sustaining_cost;
-      $calculation_basis = (105.23*2770201);
+      $calculation_basis = (($mixture_collection_percentage/1000)*$geoeconomic_zone_price)+$sustaining_cost;
+      
+      //Uso del suelo
+      $floor_use = ($calculation_basis * $mixture_collection_percentage)/100;
+
+      //Valor de actividad específica
+      $activity_value = $calculation_basis * ($activity_value_collection_percentage/100);
+
+      //Costo del periodo
+      $period_cost = $calculation_basis * ($period_percentage/100);
+
+      //Impacto
+      $impact = $calculation_basis * 0.10;
+
+      //Total
+      $grand_total = ((($calculation_basis + $floor_use + $activity_value + $period_cost + $impact)/30)*$space->area)*(1+($configuration['iva']/100));
+
+      echo "Fecha:" . " " . $request->date . '<br>'; 
+      echo "Costo de sostenimiento:" . " " . number_format($sustaining_cost) . '<br>'; 
+      echo "Base del cálculo:" . " " . number_format($calculation_basis) . '<br>';
+      echo "Uso del suelo:" . " " . number_format($floor_use) . '<br>';
+      echo "Valor de actividad específica:" . " " . number_format($activity_value) . '<br>';
+      echo "Temporada:" . " " . number_format($period_cost) . '<br>';
+      echo "Impacto:" . " " . number_format($impact) . '<br>';
+      echo "Total a pagar:" . " " . number_format($grand_total) . '<br>';
 
       
-      dd($calculation_basis);
+
+      //Valor de temporada
 
 
       //collection_percentage

@@ -16,7 +16,7 @@ class CreateMixturesTable extends Migration
       Schema::create('mixtures', function (Blueprint $table) {
          $table->id();
          $table->string('name');
-         $table->tinyInteger('percentage_to_collect');
+         $table->tinyInteger('collection_percentage');
          $table->timestamps();
       });
    }

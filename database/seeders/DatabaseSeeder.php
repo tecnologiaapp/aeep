@@ -37,31 +37,31 @@ class DatabaseSeeder extends Seeder
 			'document_number'	=> '2893'
 		]);
 
-		Mixture::create(['name' => 'Baja mixtura', 	'percentage_to_collect' 	=> 65]);
-		Mixture::create(['name' => 'Media mixtura', 	'percentage_to_collect' 	=> 40]);
-		Mixture::create(['name' => 'Alta mixtura', 	'percentage_to_collect' 	=> 15]);
+		Mixture::create(['name' => 'Baja mixtura', 	'collection_percentage' 	=> 65]);
+		Mixture::create(['name' => 'Media mixtura', 'collection_percentage' 	=> 40]);
+		Mixture::create(['name' => 'Alta mixtura', 	'collection_percentage' 	=> 15]);
 
 
 		GeoeconomicZone::create([
 			'code'		=>	305,
-			'price'		=>	'28562',
+			'price'		=>	'2770201',
 			'validity'	=>	'2020',
 			'commune'	=>	70
 		]);
 
 		EconomicActivity::create([
 			'name' => 'Alimentos y bienes',
-			'collection_percentage' => 6,
-		]);
-
-		EconomicActivity::create([
-			'name' => 'Servicios y eventos',
 			'collection_percentage' => 15,
 		]);
 
 		EconomicActivity::create([
+			'name' => 'Servicios y eventos',
+			'collection_percentage' => 40,
+		]);
+
+		EconomicActivity::create([
 			'name' => 'Alimentos, bienes y servicios',
-			'collection_percentage' => 0,
+			'collection_percentage' => 55,
 		]);
 
 		Space::create([
@@ -71,12 +71,12 @@ class DatabaseSeeder extends Seeder
 			'y_coordinate'			=>	'-75.5908346',
 			'area'					=>	2.25,
 			'geoeconomic_zone_id' =>	304,
-			'mixture_id'			=>	1
+			'mixture_id'			=>	3
 		]);
 
 		GeoeconomicZone::create([
 			'code'		=>	304,
-			'price'		=>	'28562',
+			'price'		=>	'2770201',
 			'validity'	=>	'2020',
 			'commune'	=>	70
 		]);

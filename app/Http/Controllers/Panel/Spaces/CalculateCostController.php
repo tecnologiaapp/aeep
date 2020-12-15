@@ -92,6 +92,26 @@ class CalculateCostController extends Controller
       //Total
       $grand_total = ((($calculation_basis + $floor_use + $activity_value + $period_cost + $impact)/30)*$space->area)*(1+($configuration['iva']/100));
 
+      $subtotal_iva = ($grand_total * 19) / 100;
+      $subtotal = $grand_total - $subtotal_iva;
+
+
+      $request_date = $request->date;
+
+      return view('panel.results.index', compact([
+         'request_date',
+         'sustaining_cost',
+         'calculation_basis',
+         'floor_use',
+         'activity_value',
+         'period_cost',
+         'impact',
+         'grand_total',
+         'subtotal',
+         'subtotal_iva',
+         'space'
+      ]));
+
       echo "Fecha:" . " " . $request->date . '<br>'; 
       echo "Costo de sostenimiento:" . " " . number_format($sustaining_cost) . '<br>'; 
       echo "Base del cálculo:" . " " . number_format($calculation_basis) . '<br>';

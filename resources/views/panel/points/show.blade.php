@@ -1,5 +1,12 @@
 @extends('layouts.panel')
 @section('title', $space->code)
+
+@push('styles')
+<link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css"
+   integrity="sha512-xodZBNTC5n17Xt2atTPuE1HxjVMSvLVW9ocqUKLsCC5CXdbqCmblAshOMAS6/keqq/sMZMZ19scR4PsZChSR7A=="
+   crossorigin=""/>
+@endpush
+
 @section('content')
 
 <div class="card card-preview">
@@ -10,8 +17,12 @@
 				<div class="row">
 
 					<div class="col-sm-12 mb-4">
-						<iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3966.112873475963!2d-75.5712545846048!3d6.248854428027271!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8e4428ff50bf45ad%3A0xbefa9e6d18bf02c1!2sBolivar%20%2348-72%20a%2048-104%2C%20Medell%C3%ADn%2C%20Antioquia!5e0!3m2!1ses!2sco!4v1607898961848!5m2!1ses!2sco" width="100%" height="450" frameborder="0" style="border:0;" allowfullscreen="" aria-hidden="false" tabindex="0"></iframe>
+						{{-- <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3966.112873475963!2d-75.5712545846048!3d6.248854428027271!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8e4428ff50bf45ad%3A0xbefa9e6d18bf02c1!2sBolivar%20%2348-72%20a%2048-104%2C%20Medell%C3%ADn%2C%20Antioquia!5e0!3m2!1ses!2sco!4v1607898961848!5m2!1ses!2sco" width="100%" height="450" frameborder="0" style="border:0;" allowfullscreen="" aria-hidden="false" tabindex="0"></iframe> --}}
+						<div id="map"></div>
 					</div>
+
+					 
+
 
 					<div class="col-sm-12 col-xl-4 mb-2">
 						<p><b>Dirección</b>: {{ $space->address }}</p>
@@ -58,3 +69,35 @@
 	</div>
 </div><!-- .card-preview -->
 @endsection
+
+@push('scripts')
+<script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"
+   integrity="sha512-XQoYMqMTK8LvdxXYG3nZ448hOEQiglfqkJs1NOQV44cWnUrBc8PkAOcXy20w0vlaXaVUearIOBhiXZ5V3ynxwA=="
+   crossorigin=""></script>
+
+   <script type="text/javascript">
+   	// Initialize the map and assign it to a variable for later use
+		// there's a few ways to declare a VARIABLE in javascript.
+		// you might also see people declaring variables using `const` and `let`
+		var map = L.map('map', {
+			// Set latitude and longitude of the map center (required)
+			center: [{{ $space->x_coordinate }}, {{ $space->y_coordinate }}],
+			// Set the initial zoom level, values 0-18, where 0 is most zoomed-out (required)
+			zoom: 13
+		});
+
+		// Create a Tile Layer and add it to the map
+		var tiles = new L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+			attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors',
+			minZoom: '17'}).addTo(map);
+
+		var marker = L.marker([{{ $space->x_coordinate }}, {{ $space->y_coordinate }}],
+		{ 
+			draggable: false,
+			title: "",
+			opacity: 0.75
+		});
+
+		marker.addTo(map).bindPopup("<p1><b>{{ $space->address }} - ({{ $space->code }})</p1>") .openPopup();
+   </script>
+@endpush

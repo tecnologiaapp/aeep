@@ -26,16 +26,16 @@ class DatabaseSeeder extends Seeder
 		DocumentType::create(['name' => 'NIT']);
 
 		Configuration::create([
-			'iva'				=> 19,
-			'current_ipc'	=>	105.23
+			'iva' => 19,
+			'current_ipc' =>	105.91
 		]);
 
 		User::create([
-			'name'		=>	'Brayan Angarita',
-			'email'		=> 'info@besoft.club',
-			'password'	=> Hash::make('password'),
+			'name' =>	'Brayan Angarita',
+			'email' => 'info@besoft.club',
+			'password' => Hash::make('AR23'),
 			'document_type' => 1,
-			'document_number'	=> '1093788803'
+			'document_number' => '1093788803'
 		]);
 
 		Mixture::create(['name' => 'Baja mixtura', 	'collection_percentage' 	=> 65]);
@@ -44,10 +44,28 @@ class DatabaseSeeder extends Seeder
 
 
 		GeoeconomicZone::create([
-			'code'		=>	305,
-			'price'		=>	'2770201',
-			'validity'	=>	'2020',
-			'commune'	=>	70
+			'id' => 1,
+			'price' =>	'2558800'
+		]);
+
+		GeoeconomicZone::create([
+			'id' => 2,
+			'price' =>	'2814801'
+		]);
+
+		GeoeconomicZone::create([
+			'id' => 3,
+			'price' =>	'3096282'
+		]);
+
+		GeoeconomicZone::create([
+			'id' => 4,
+			'price' =>	'4121501'
+		]);
+
+		GeoeconomicZone::create([
+			'id' => 5,
+			'price' =>	'8030677'
 		]);
 
 		EconomicActivity::create([
@@ -65,194 +83,185 @@ class DatabaseSeeder extends Seeder
 			'collection_percentage' => 55,
 		]);
 
-		Space::create([
-			'code'					=>	'SE-CBM-01',
-			'address'				=>	'CR 88 37A 37',
-			'x_coordinate'			=>	'6.1715013',
-			'y_coordinate'			=>	'-75.5908346',
-			'area'					=>	2.25,
-			'geoeconomic_zone_id' =>	304,
-			'mixture_id'			=>	3
-		]);
+		// Space::create([
+		// 	'code'					=>	'SE-CBM-01',
+		// 	'address'				=>	'CR 88 37A 37',
+		// 	'x_coordinate'			=>	'6.1715013',
+		// 	'y_coordinate'			=>	'-75.5908346',
+		// 	'area'					=>	2.25,
+		// 	'geoeconomic_zone_id' =>	304,
+		// 	'mixture_id'			=>	3
+		// ]);
 
-		Space::create([
-			'code'					=>	'SE-CBM-02',
-			'address'				=>	'CR 88 37A 38',
-			'x_coordinate'			=>	'6.1715013',
-			'y_coordinate'			=>	'-75.5908346',
-			'area'					=>	2.25,
-			'geoeconomic_zone_id' =>	304,
-			'mixture_id'			=>	3
-		]);
+		// Space::create([
+		// 	'code'					=>	'SE-CBM-02',
+		// 	'address'				=>	'CR 88 37A 38',
+		// 	'x_coordinate'			=>	'6.1715013',
+		// 	'y_coordinate'			=>	'-75.5908346',
+		// 	'area'					=>	2.25,
+		// 	'geoeconomic_zone_id' =>	304,
+		// 	'mixture_id'			=>	3
+		// ]);
 
-		Space::create([
-			'code'					=>	'SE-CBM-03',
-			'address'				=>	'CR 88 37A 39',
-			'x_coordinate'			=>	'6.1715013',
-			'y_coordinate'			=>	'-75.5908346',
-			'area'					=>	2.25,
-			'geoeconomic_zone_id' =>	304,
-			'mixture_id'			=>	3
-		]);
+		// Space::create([
+		// 	'code'					=>	'SE-CBM-03',
+		// 	'address'				=>	'CR 88 37A 39',
+		// 	'x_coordinate'			=>	'6.1715013',
+		// 	'y_coordinate'			=>	'-75.5908346',
+		// 	'area'					=>	2.25,
+		// 	'geoeconomic_zone_id' =>	304,
+		// 	'mixture_id'			=>	3
+		// ]);
 
-		Space::create([
-			'code'					=>	'SE-CBM-04',
-			'address'				=>	'CR 88 37A 40',
-			'x_coordinate'			=>	'6.1715013',
-			'y_coordinate'			=>	'-75.5908346',
-			'area'					=>	2.25,
-			'geoeconomic_zone_id' =>	304,
-			'mixture_id'			=>	3
-		]);
+		// Space::create([
+		// 	'code'					=>	'SE-CBM-04',
+		// 	'address'				=>	'CR 88 37A 40',
+		// 	'x_coordinate'			=>	'6.1715013',
+		// 	'y_coordinate'			=>	'-75.5908346',
+		// 	'area'					=>	2.25,
+		// 	'geoeconomic_zone_id' =>	304,
+		// 	'mixture_id'			=>	3
+		// ]);
 
-		Space::create([
-			'code'					=>	'SE-CBM-05',
-			'address'				=>	'CR 88 37A 41',
-			'x_coordinate'			=>	'6.1715013',
-			'y_coordinate'			=>	'-75.5908346',
-			'area'					=>	2.25,
-			'geoeconomic_zone_id' =>	304,
-			'mixture_id'			=>	3
-		]);
+		// Space::create([
+		// 	'code'					=>	'SE-CBM-05',
+		// 	'address'				=>	'CR 88 37A 41',
+		// 	'x_coordinate'			=>	'6.1715013',
+		// 	'y_coordinate'			=>	'-75.5908346',
+		// 	'area'					=>	2.25,
+		// 	'geoeconomic_zone_id' =>	304,
+		// 	'mixture_id'			=>	3
+		// ]);
 
-		Space::create([
-			'code'					=>	'SE-CBM-06',
-			'address'				=>	'CR 88 37A 42',
-			'x_coordinate'			=>	'6.1715013',
-			'y_coordinate'			=>	'-75.5908346',
-			'area'					=>	2.25,
-			'geoeconomic_zone_id' =>	304,
-			'mixture_id'			=>	2
-		]);
+		// Space::create([
+		// 	'code'					=>	'SE-CBM-06',
+		// 	'address'				=>	'CR 88 37A 42',
+		// 	'x_coordinate'			=>	'6.1715013',
+		// 	'y_coordinate'			=>	'-75.5908346',
+		// 	'area'					=>	2.25,
+		// 	'geoeconomic_zone_id' =>	304,
+		// 	'mixture_id'			=>	2
+		// ]);
 
-		Space::create([
-			'code'					=>	'SE-CBM-07',
-			'address'				=>	'CR 88 37A 43',
-			'x_coordinate'			=>	'6.1715013',
-			'y_coordinate'			=>	'-75.5908346',
-			'area'					=>	2.25,
-			'geoeconomic_zone_id' =>	304,
-			'mixture_id'			=>	3
-		]);
+		// Space::create([
+		// 	'code'					=>	'SE-CBM-07',
+		// 	'address'				=>	'CR 88 37A 43',
+		// 	'x_coordinate'			=>	'6.1715013',
+		// 	'y_coordinate'			=>	'-75.5908346',
+		// 	'area'					=>	2.25,
+		// 	'geoeconomic_zone_id' =>	304,
+		// 	'mixture_id'			=>	3
+		// ]);
 
-		Space::create([
-			'code'					=>	'SE-CBM-08',
-			'address'				=>	'CR 88 37A 44',
-			'x_coordinate'			=>	'6.1715013',
-			'y_coordinate'			=>	'-75.5908346',
-			'area'					=>	2.25,
-			'geoeconomic_zone_id' =>	304,
-			'mixture_id'			=>	3
-		]);
+		// Space::create([
+		// 	'code'					=>	'SE-CBM-08',
+		// 	'address'				=>	'CR 88 37A 44',
+		// 	'x_coordinate'			=>	'6.1715013',
+		// 	'y_coordinate'			=>	'-75.5908346',
+		// 	'area'					=>	2.25,
+		// 	'geoeconomic_zone_id' =>	304,
+		// 	'mixture_id'			=>	3
+		// ]);
 
-		Space::create([
-			'code'					=>	'SE-CBM-09',
-			'address'				=>	'CR 88 37A 45',
-			'x_coordinate'			=>	'6.1715013',
-			'y_coordinate'			=>	'-75.5908346',
-			'area'					=>	2.25,
-			'geoeconomic_zone_id' =>	304,
-			'mixture_id'			=>	3
-		]);
+		// Space::create([
+		// 	'code'					=>	'SE-CBM-09',
+		// 	'address'				=>	'CR 88 37A 45',
+		// 	'x_coordinate'			=>	'6.1715013',
+		// 	'y_coordinate'			=>	'-75.5908346',
+		// 	'area'					=>	2.25,
+		// 	'geoeconomic_zone_id' =>	304,
+		// 	'mixture_id'			=>	3
+		// ]);
 
-		Space::create([
-			'code'					=>	'SE-CBM-10',
-			'address'				=>	'CR 88 37A 46',
-			'x_coordinate'			=>	'6.1715013',
-			'y_coordinate'			=>	'-75.5908346',
-			'area'					=>	2.25,
-			'geoeconomic_zone_id' =>	304,
-			'mixture_id'			=>	3
-		]);
+		// Space::create([
+		// 	'code'					=>	'SE-CBM-10',
+		// 	'address'				=>	'CR 88 37A 46',
+		// 	'x_coordinate'			=>	'6.1715013',
+		// 	'y_coordinate'			=>	'-75.5908346',
+		// 	'area'					=>	2.25,
+		// 	'geoeconomic_zone_id' =>	304,
+		// 	'mixture_id'			=>	3
+		// ]);
 
-		Space::create([
-			'code'					=>	'SE-CBM-11',
-			'address'				=>	'CR 88 37A 47',
-			'x_coordinate'			=>	'6.1715013',
-			'y_coordinate'			=>	'-75.5908346',
-			'area'					=>	2.25,
-			'geoeconomic_zone_id' =>	304,
-			'mixture_id'			=>	2
-		]);
+		// Space::create([
+		// 	'code'					=>	'SE-CBM-11',
+		// 	'address'				=>	'CR 88 37A 47',
+		// 	'x_coordinate'			=>	'6.1715013',
+		// 	'y_coordinate'			=>	'-75.5908346',
+		// 	'area'					=>	2.25,
+		// 	'geoeconomic_zone_id' =>	304,
+		// 	'mixture_id'			=>	2
+		// ]);
 
-		Space::create([
-			'code'					=>	'SE-CBM-12',
-			'address'				=>	'CR 88 37A 48',
-			'x_coordinate'			=>	'6.1715013',
-			'y_coordinate'			=>	'-75.5908346',
-			'area'					=>	2.25,
-			'geoeconomic_zone_id' =>	304,
-			'mixture_id'			=>	3
-		]);
+		// Space::create([
+		// 	'code'					=>	'SE-CBM-12',
+		// 	'address'				=>	'CR 88 37A 48',
+		// 	'x_coordinate'			=>	'6.1715013',
+		// 	'y_coordinate'			=>	'-75.5908346',
+		// 	'area'					=>	2.25,
+		// 	'geoeconomic_zone_id' =>	304,
+		// 	'mixture_id'			=>	3
+		// ]);
 
-		Space::create([
-			'code'					=>	'SE-CBM-13',
-			'address'				=>	'CR 88 37A 49',
-			'x_coordinate'			=>	'6.1715013',
-			'y_coordinate'			=>	'-75.5908346',
-			'area'					=>	2.25,
-			'geoeconomic_zone_id' =>	304,
-			'mixture_id'			=>	3
-		]);
+		// Space::create([
+		// 	'code'					=>	'SE-CBM-13',
+		// 	'address'				=>	'CR 88 37A 49',
+		// 	'x_coordinate'			=>	'6.1715013',
+		// 	'y_coordinate'			=>	'-75.5908346',
+		// 	'area'					=>	2.25,
+		// 	'geoeconomic_zone_id' =>	304,
+		// 	'mixture_id'			=>	3
+		// ]);
 
-		Space::create([
-			'code'					=>	'SE-CBM-14',
-			'address'				=>	'CR 88 37A 50',
-			'x_coordinate'			=>	'6.1715013',
-			'y_coordinate'			=>	'-75.5908346',
-			'area'					=>	2.25,
-			'geoeconomic_zone_id' =>	304,
-			'mixture_id'			=>	3
-		]);
+		// Space::create([
+		// 	'code'					=>	'SE-CBM-14',
+		// 	'address'				=>	'CR 88 37A 50',
+		// 	'x_coordinate'			=>	'6.1715013',
+		// 	'y_coordinate'			=>	'-75.5908346',
+		// 	'area'					=>	2.25,
+		// 	'geoeconomic_zone_id' =>	304,
+		// 	'mixture_id'			=>	3
+		// ]);
 
-		Space::create([
-			'code'					=>	'SE-CBM-15',
-			'address'				=>	'CR 88 37A 51',
-			'x_coordinate'			=>	'6.1715013',
-			'y_coordinate'			=>	'-75.5908346',
-			'area'					=>	2.25,
-			'geoeconomic_zone_id' =>	304,
-			'mixture_id'			=>	3
-		]);
+		// Space::create([
+		// 	'code'					=>	'SE-CBM-15',
+		// 	'address'				=>	'CR 88 37A 51',
+		// 	'x_coordinate'			=>	'6.1715013',
+		// 	'y_coordinate'			=>	'-75.5908346',
+		// 	'area'					=>	2.25,
+		// 	'geoeconomic_zone_id' =>	304,
+		// 	'mixture_id'			=>	3
+		// ]);
 
-		Space::create([
-			'code'					=>	'SE-CBM-16',
-			'address'				=>	'CR 88 37A 52',
-			'x_coordinate'			=>	'6.1715013',
-			'y_coordinate'			=>	'-75.5908346',
-			'area'					=>	2.25,
-			'geoeconomic_zone_id' =>	304,
-			'mixture_id'			=>	2
-		]);
+		// Space::create([
+		// 	'code'					=>	'SE-CBM-16',
+		// 	'address'				=>	'CR 88 37A 52',
+		// 	'x_coordinate'			=>	'6.1715013',
+		// 	'y_coordinate'			=>	'-75.5908346',
+		// 	'area'					=>	2.25,
+		// 	'geoeconomic_zone_id' =>	304,
+		// 	'mixture_id'			=>	2
+		// ]);
 
-		Space::create([
-			'code'					=>	'SE-CBM-17',
-			'address'				=>	'CR 88 37A 53',
-			'x_coordinate'			=>	'6.1715013',
-			'y_coordinate'			=>	'-75.5908346',
-			'area'					=>	2.25,
-			'geoeconomic_zone_id' =>	304,
-			'mixture_id'			=>	3
-		]);
+		// Space::create([
+		// 	'code'					=>	'SE-CBM-17',
+		// 	'address'				=>	'CR 88 37A 53',
+		// 	'x_coordinate'			=>	'6.1715013',
+		// 	'y_coordinate'			=>	'-75.5908346',
+		// 	'area'					=>	2.25,
+		// 	'geoeconomic_zone_id' =>	304,
+		// 	'mixture_id'			=>	3
+		// ]);
 
-		Space::create([
-			'code'					=>	'SE-CBM-18',
-			'address'				=>	'CR 88 37A 50',
-			'x_coordinate'			=>	'6.1715013',
-			'y_coordinate'			=>	'-75.5908346',
-			'area'					=>	2.25,
-			'geoeconomic_zone_id' =>	304,
-			'mixture_id'			=>	3
-		]);
-
-		
-
-		GeoeconomicZone::create([
-			'code'		=>	304,
-			'price'		=>	'2770201',
-			'validity'	=>	'2020',
-			'commune'	=>	70
-		]);
+		// Space::create([
+		// 	'code'					=>	'SE-CBM-18',
+		// 	'address'				=>	'CR 88 37A 50',
+		// 	'x_coordinate'			=>	'6.1715013',
+		// 	'y_coordinate'			=>	'-75.5908346',
+		// 	'area'					=>	2.25,
+		// 	'geoeconomic_zone_id' =>	304,
+		// 	'mixture_id'			=>	3
+		// ]);
 	// \App\Models\User::factory(10)->create();
 	}
 }

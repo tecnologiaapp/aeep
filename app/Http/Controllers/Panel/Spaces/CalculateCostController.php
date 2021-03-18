@@ -52,14 +52,14 @@ class CalculateCostController extends Controller
       } else if ($month == 7 | $month == 8 | $month == 10 | $month == 12){
          $period_percentage = 10;
       } else {
-         $period_percentage = 5;
+         $period_percentage = 5; //3, 4, 5, 6, 9, 11 (marzo, abril, mayo, junio, septiembre, noviembre)
       }
 
       //4. Obtener la configuración
       $configuration = Configuration::first();
 
       //5. Obtener el valor de la zona geoeconómica
-      $geoeconomic_zone_price = GeoeconomicZone::where('code', $space->geoeconomic_zone_id)->pluck('price')->first();
+      $geoeconomic_zone_price = GeoeconomicZone::where('id', $space->geoeconomic_zone_id)->pluck('price')->first();
 
       //6. Obtener el porcentaje de cobro de la mixtura
       $mixture_collection_percentage = Mixture::whereId($space->mixture_id)->pluck('collection_percentage')->first();
@@ -83,7 +83,7 @@ class CalculateCostController extends Controller
       //Valor de actividad específica
       $activity_value = $calculation_basis * ($activity_value_collection_percentage/100);
 
-      //Costo del periodo
+      //Costo del periodo - Temporada
       $period_cost = $calculation_basis * ($period_percentage/100);
 
       //Impacto

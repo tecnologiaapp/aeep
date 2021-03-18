@@ -19,7 +19,7 @@ class CreateSpacesTable extends Migration
          $table->string('address');
          $table->string('x_coordinate')->nullable();
          $table->string('y_coordinate')->nullable();
-         $table->double('area', 8, 2);
+         $table->string('area', 10,6)->default(0.00);
          $table->string('geoeconomic_zone_id');
          $table->unsignedBigInteger('mixture_id');
          $table->foreign('mixture_id')->references('id')->on('mixtures');

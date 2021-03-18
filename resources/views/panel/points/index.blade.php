@@ -12,7 +12,7 @@
 						<th scope="col">Código</th>
 						<th scope="col">Dirección</th>
 						<th scope="col">Área</th>
-						<th scope="col">Ver en mapa</th>
+						<th scope="col">Código QR</th>
 						<th scope="col">Mixtura</th>
 						<th scope="col">Reservar</th>
 					</tr>
@@ -25,8 +25,8 @@
 						<td>{{$space->address}}</td>
 						<td>{{$space->area}}</td>
 						<td>
-							<a href="https://www.google.com/maps/&#64;{{$space->x_coordinate}},{{$space->y_coordinate}},20z" target="_blank">
-								Ver en mapa
+							<a href="https://upload.wikimedia.org/wikipedia/commons/d/d7/Commons_QR_code.png" target="_blank">
+								Ver QR
 							</a>
 						</td>
 						<td>{{$space->mixture->name}}</td>

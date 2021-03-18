@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Panel\Spaces;
 
 use App\Http\Controllers\Controller;
 use App\Models\Spaces\EconomicActivity;
+use App\Models\Spaces\GeoeconomicZone;
 use App\Models\Spaces\Mixture;
 use App\Models\Spaces\Space;
 use Illuminate\Http\Request;
@@ -28,8 +29,9 @@ class SpacesController extends Controller
    */
    public function create()
    {
+      $geoeconomic_zones = GeoeconomicZone::orderBy('price', 'ASC')->get();
       $mixtures = Mixture::all();
-      return view('panel.points.create', compact('mixtures'));
+      return view('panel.points.create', compact(['mixtures', 'geoeconomic_zones']));
    }
 
    /**
@@ -49,6 +51,8 @@ class SpacesController extends Controller
          'geoeconomic_zone_id' => $request->geoeconomic_zone_id,
          'mixture_id' => $request->mixture_id,
       ]);
+
+      return back()->with('message', ['success', 'Se ha registrado el punto']);
    }
 
    /**

@@ -3,7 +3,7 @@
 @section('content')
 
 	<div class="col-sm-8 offset-2 mb-5">
-		<div class="alert alert-danger text-center">
+		<div class="alert alert-warning text-center">
 			<b>¡Atención!</b> La venta de licores es una actividad no permitida
 		</div>
 	</div>
@@ -14,15 +14,10 @@
 
 			<div class="col-sm-12 col-xl-8 offset-xl-2 mb-2">
 				<div class="text-center">
-					<h5>DOCUMENTO DE COBRO</h5>
+					<h5>LIQUIDACIÓN</h5>
 					<div>Nit. 890.905.211-1</div>
-					<div>Calle 44 N° 52 - 165 Medellín</div>
-					<div>Tel. 385 55 55</div>
-				</div>
-
-				<div class="text-left">
-					
-					
+					<div>Plaza de La Libertad de Medellín, Calle 44 # 55A-31, Medellín, Antioquia</div>
+					<div>Tel. (+57) (4) 448 1740 Ext 100</div>
 				</div>
 				
 				<div class="card-header">
@@ -35,17 +30,41 @@
 					<div class="row mb-4">
 						<div class="col-sm-12">
 							<div class="text-right">
-								Fecha límite de pago: {{ \Carbon\Carbon::now()->addHours(2) }}
+								Fecha límite de pago: <b>Pago inmediato</b>
 							</div>
 							<div><b>Nombre o razón social: </b> {{ Auth::user()->name }}</div>
 							<div><b>Cédula o NIT:</b> {{ Auth::user()->document_number }}</div>
 							<div><b>Dirección:</b> {{ $space->address }}</div>
-							<div><b>Código de dirección:</b> 5471920500006005{{ rand(01, 99) }}</div>
+							<div><b>Código de radicado:</b> 5471920500006005{{ rand(01, 99) }}</div>
 						</div>
 					</div>
 
 					<div class="table-responsive-sm">
+
 						<table class="table table-striped">
+							<thead>
+								<tr>
+									<th class="center">Fecha</th>
+									<th>Dirección</th>
+									<th>Área a ocupar</th>
+								</tr>
+							</thead>
+
+							<tbody>
+								<tr>
+									<td class="center">{{$request_date}}</td>
+									<td class="left strong">{{ $space->address }}</td>
+									<td class="left strong">{{ $space->area }}</td>
+								</tr>
+
+							</tbody>
+						</table>
+
+						<div class="mt-3">
+							El valor a pagar es de <b>${{ number_format($grand_total) }}</b> pesos. Este valor se calcula por el día solicitado.
+						</div>
+
+						{{-- <table class="table table-striped">
 							<thead>
 								<tr>
 									<th class="center">Código Renta/Ingreso</th>
@@ -91,7 +110,7 @@
 									<td class="left">${{ number_format($impact) }}</td>
 								</tr>
 							</tbody>
-						</table>
+						</table> --}}
 					</div>
 
 					<div class="row">
@@ -113,8 +132,7 @@
 
 										<td class="right">${{ number_format($subtotal_iva) }}</td>
 									</tr>
-
-
+									
 									<tr>
 										<td class="left">
 											<strong>Total a pagar</strong>
@@ -129,38 +147,20 @@
 					</div>
 				</div>
 
-				<div class="col-sm-12 text-right mt-4">
-
-					<form method="post" action="https://sandbox.checkout.payulatam.com/ppp-web-gateway-payu" id="payForm">
-                  <input name="merchantId" type="hidden" value="508029">
-                  <input name="accountId" type="hidden" value="512321" >
-                  <input name="description" type="hidden" value="Pago de AEEP">
-                  <input name="referenceCode" type="hidden" value="{{ rand(1,100) }} {{ Str::random(100)  }}">
-                  <input name="extra1" type="hidden" value="{{ rand(1,100) }} {{ Str::random(100)  }}">
-                  <input name="amount" type="hidden" value="{{ $grand_total }}">
-                  <input name="tax" type="hidden" value="19">
-                  <input name="taxReturnBase" type="hidden" value="0">
-                  <input name="currency" type="hidden" value="COP">
-                  <input name="algorithmSignature" type="hidden" value="SHA256">
-                  <input name="signature" type="hidden" value="34fdss">
-                  <input name="test" type="hidden" value="0">
-                  <input name="buyerFullName" type="hidden" value="{{ Auth::user()->name }}">
-                  <input name="buyerEmail" type="hidden" value="{{ Auth::user()->email }}">
-                  <input name="responseUrl"    type="hidden"  value="https://evaportal.co/pagar/v1/response">
-                  <input name="confirmationUrl" type="hidden"  value="https://evaportal.co/pagar/v1/confirmation">
-                  <input name="shippingCity" type="hidden" value="Medellin">
-                  <input name="shippingAddress" type="hidden" value="{{ $space->address }}">
-                  <input name="shippingCountry" type="hidden" value="CO">
-
-                  <button type="submit" class="btn btn-dark">
-							Ir a pagar
+				<div class="row">
+					<div class="col-sm-12 col-md-6 mt-4">
+					<a href="{{ route('panel.spaces.show', $space) }}" class="btn btn-danger">
+						Rechazar proceso
+					</a>
+				</div>
+				<div class="col-sm-12 col-md-6 text-right mt-4">
+					<form method="post" action="{{ route('panel.spaces.booking.store', $space) }}">
+						@csrf
+						<button type="submit" class="btn btn-dark">
+							Continuar con el pago
 						</button>
-               </form>
-
-
-					{{-- <button type="submit" class="btn btn-dark">
-						Ir a pagar
-					</button> --}}
+					</form>
+				</div>
 				</div>
 
 			</div>

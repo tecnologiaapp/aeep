@@ -6,30 +6,27 @@ use Illuminate\Support\Facades\Schema;
 
 class CreateGeoeconomicZonesTable extends Migration
 {
-    /**
-     * Run the migrations.
-     *
-     * @return void
-     */
-    public function up()
-    {
-        Schema::create('geoeconomic_zones', function (Blueprint $table) {
-            $table->id();
-            $table->integer('code'); //Código del valor
-            $table->string('price');
-            $table->string('validity'); //2021
-            $table->integer('commune'); //Código de la comuna
-            $table->timestamps();
-        });
-    }
+   /**
+   * Run the migrations.
+   *
+   * @return void
+   */
+   public function up()
+   {
+      Schema::create('geoeconomic_zones', function (Blueprint $table) {
+         $table->id();
+         $table->string('price');
+         $table->timestamps();
+      });
+   }
 
-    /**
-     * Reverse the migrations.
-     *
-     * @return void
-     */
-    public function down()
-    {
-        Schema::dropIfExists('geoeconomic_zones');
-    }
+   /**
+   * Reverse the migrations.
+   *
+   * @return void
+   */
+   public function down()
+   {
+      Schema::dropIfExists('geoeconomic_zones');
+   }
 }

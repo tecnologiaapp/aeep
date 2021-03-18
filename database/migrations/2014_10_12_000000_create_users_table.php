@@ -25,6 +25,7 @@ class CreateUsersTable extends Migration
 
          $table->string('document_number', 50);
          $table->string('nit')->nullable();
+         $table->boolean('active')->default(0);
          $table->string('company_name')->nullable();
          $table->rememberToken();
          $table->timestamps();

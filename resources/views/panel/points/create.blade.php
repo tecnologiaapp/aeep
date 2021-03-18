@@ -25,7 +25,7 @@
 						<div class="col-sm-12 col-md-6 col-xxl-4 mb-2">
 							<div class="form-group">
 			               <label class="form-label" for="name">Dirección</label>
-			               <input type="text" class="form-control form-control-lg @error('address') is-invalid @enderror" id="name" name="address" placeholder="Ingresa tu nombre completo">
+			               <input type="text" class="form-control form-control-lg @error('address') is-invalid @enderror" id="name" name="address" placeholder="Ingresa la dirección">
 			               @error('address')
 			               <span class="invalid-feedback" role="alert">
 			                  <strong>{{ $message }}</strong>
@@ -37,7 +37,7 @@
 						<div class="col-sm-12 col-md-6 col-xxl-3 mb-2">
 							<div class="form-group">
 			               <label class="form-label" for="name">Coordenada X</label>
-			               <input type="text" class="form-control form-control-lg @error('x_coordinate') is-invalid @enderror" id="name" name="x_coordinate" placeholder="Ingresa tu nombre completo">
+			               <input type="text" class="form-control form-control-lg @error('x_coordinate') is-invalid @enderror" id="name" name="x_coordinate">
 			               @error('x_coordinate')
 			               <span class="invalid-feedback" role="alert">
 			                  <strong>{{ $message }}</strong>
@@ -49,7 +49,7 @@
 						<div class="col-sm-12 col-md-6 col-xxl-3 mb-2">
 							<div class="form-group">
 			               <label class="form-label" for="name">Coordenada Y</label>
-			               <input type="text" class="form-control form-control-lg @error('y_coordinate') is-invalid @enderror" id="name" name="y_coordinate" placeholder="Ingresa tu nombre completo">
+			               <input type="text" class="form-control form-control-lg @error('y_coordinate') is-invalid @enderror" id="name" name="y_coordinate">
 			               @error('y_coordinate')
 			               <span class="invalid-feedback" role="alert">
 			                  <strong>{{ $message }}</strong>
@@ -72,8 +72,12 @@
 
 						<div class="col-sm-12 col-md-4 col-xxl-4 mb-2">
 							<div class="form-group">
-			               <label class="form-label" for="name">Código ZGE</label>
-			               <input type="number" class="form-control form-control-lg @error('geoeconomic_zone_id') is-invalid @enderror" id="name" name="geoeconomic_zone_id" placeholder="Código de la zona geoeconómica">
+			               <label class="form-label" for="name">Zona Geoeconómica</label>
+			               <select class="form-control form-control-lg @error('geoeconomic_zone_id') is-invalid @enderror" name="geoeconomic_zone_id">
+			               	@foreach($geoeconomic_zones as $zone)
+			                  <option value="{{ $zone->id }}">${{ number_format($zone->price) }}</option>
+			                  @endforeach
+			               </select>
 			               @error('geoeconomic_zone_id')
 			               <span class="invalid-feedback" role="alert">
 			                  <strong>{{ $message }}</strong>

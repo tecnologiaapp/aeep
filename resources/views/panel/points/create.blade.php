@@ -10,11 +10,23 @@
 			<div class="col-sm-10 col-md-10 offset-md-1">
 				<div class="row">
 					<div class="row">
-						<div class="col-sm-12 col-md-6 col-xxl-2 mb-2">
+						<div class="col-sm-12 col-md-6 col-xxl-4 mb-2">
 							<div class="form-group">
 			               <label class="form-label" for="name">Código del punto</label>
-			               <input type="text" class="form-control form-control-lg @error('code') is-invalid @enderror" id="name" name="code" placeholder="Ej: SE-CBM-01">
+			               <input type="text" class="form-control form-control-lg @error('code') is-invalid @enderror" id="code" name="code" placeholder="Ej: SE-CBM-01">
 			               @error('code')
+			               <span class="invalid-feedback" role="alert">
+			                  <strong>{{ $message }}</strong>
+			               </span>
+			               @enderror
+			            </div>
+						</div>
+
+						<div class="col-sm-12 col-md-6 col-xxl-8 mb-2">
+							<div class="form-group">
+			               <label class="form-label" for="name">Dirección</label>
+			               <input type="text" class="form-control form-control-lg @error('address') is-invalid @enderror" id="address" name="address" placeholder="Ingresa la dirección">
+			               @error('address')
 			               <span class="invalid-feedback" role="alert">
 			                  <strong>{{ $message }}</strong>
 			               </span>
@@ -24,20 +36,8 @@
 
 						<div class="col-sm-12 col-md-6 col-xxl-4 mb-2">
 							<div class="form-group">
-			               <label class="form-label" for="name">Dirección</label>
-			               <input type="text" class="form-control form-control-lg @error('address') is-invalid @enderror" id="name" name="address" placeholder="Ingresa la dirección">
-			               @error('address')
-			               <span class="invalid-feedback" role="alert">
-			                  <strong>{{ $message }}</strong>
-			               </span>
-			               @enderror
-			            </div>
-						</div>
-
-						<div class="col-sm-12 col-md-6 col-xxl-3 mb-2">
-							<div class="form-group">
 			               <label class="form-label" for="name">Coordenada X</label>
-			               <input type="text" class="form-control form-control-lg @error('x_coordinate') is-invalid @enderror" id="name" name="x_coordinate">
+			               <input type="text" class="form-control form-control-lg @error('x_coordinate') is-invalid @enderror" id="x_coordinate" name="x_coordinate">
 			               @error('x_coordinate')
 			               <span class="invalid-feedback" role="alert">
 			                  <strong>{{ $message }}</strong>
@@ -46,10 +46,10 @@
 			            </div>
 						</div>
 
-						<div class="col-sm-12 col-md-6 col-xxl-3 mb-2">
+						<div class="col-sm-12 col-md-6 col-xxl-4 mb-2">
 							<div class="form-group">
 			               <label class="form-label" for="name">Coordenada Y</label>
-			               <input type="text" class="form-control form-control-lg @error('y_coordinate') is-invalid @enderror" id="name" name="y_coordinate">
+			               <input type="text" class="form-control form-control-lg @error('y_coordinate') is-invalid @enderror" id="y_coordinate" name="y_coordinate">
 			               @error('y_coordinate')
 			               <span class="invalid-feedback" role="alert">
 			                  <strong>{{ $message }}</strong>
@@ -61,7 +61,7 @@
 						<div class="col-sm-12 col-md-4 col-xxl-4 mb-2">
 							<div class="form-group">
 			               <label class="form-label" for="name">Área</label>
-			               <input type="text" class="form-control form-control-lg @error('area') is-invalid @enderror" id="name" name="area" placeholder="Ingresa el área en metros cuadrados">
+			               <input type="text" class="form-control form-control-lg @error('area') is-invalid @enderror" id="area" name="area" placeholder="Ingresa el área en metros cuadrados">
 			               @error('area')
 			               <span class="invalid-feedback" role="alert">
 			                  <strong>{{ $message }}</strong>

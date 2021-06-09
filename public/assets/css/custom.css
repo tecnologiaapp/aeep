@@ -1,13 +1,1 @@
-.alert-success {
-	color: #ffffff;
-	background: #3fbd9a;
-	border-color: #e4fbf5;
-}
-
-#map { 
-  height: 50vh;
-}
-
-.leaflet-popup-content-wrapper {
-  width: 100%;
-}
+custom.css

@@ -1,6 +1,7 @@
 @extends('layouts.panel')
 
 @section('title', 'Todos los puntos AEEP')
+@section('sub_title', 'Esta es la lista de todos los puntos de AEEP que hemos dispuesto para su uso.')
 @section('content')
 
 <div class="card card-preview">
@@ -31,7 +32,7 @@
 						</td>
 						<td>{{$space->mixture->name}}</td>
 						<td>
-							<a href="{{ route('panel.spaces.show', $space) }}">
+							<a href="{{ route('panel.spaces.show', $space) }}" class="btn btn-outline-dark btn-sm">
 								Reservar
 							</a>
 						</td>

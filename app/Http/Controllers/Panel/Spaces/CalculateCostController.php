@@ -4,11 +4,14 @@ namespace App\Http\Controllers\Panel\Spaces;
 
 use App\Http\Controllers\Controller;
 use App\Models\Configuration;
+use App\Models\Spaces\Booking;
 use App\Models\Spaces\EconomicActivity;
 use App\Models\Spaces\GeoeconomicZone;
 use App\Models\Spaces\Mixture;
 use App\Models\Spaces\Space;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Str;
 
 class CalculateCostController extends Controller
 {
@@ -97,6 +100,15 @@ class CalculateCostController extends Controller
 
 
       $request_date = $request->date;
+
+      //Reservar el espacio
+      $booking = Booking::create([
+         'date' => $request->date,
+         'reference' => Str::random(10),
+         'space_id' => $space->id,
+         'economic_activity_id' => $request->activity,
+         'user_id' => Auth::id()
+      ]);
 
       return view('panel.results.index', compact([
          'request_date',

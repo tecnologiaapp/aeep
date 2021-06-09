@@ -8,6 +8,7 @@ use App\Models\Spaces\GeoeconomicZone;
 use App\Models\Spaces\Mixture;
 use App\Models\Spaces\Space;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Session;
 
 class SpacesController extends Controller
 {
@@ -52,7 +53,8 @@ class SpacesController extends Controller
          'mixture_id' => $request->mixture_id,
       ]);
 
-      return back()->with('message', ['success', 'Se ha registrado el punto']);
+      Session::flash('info', ['success', __('Se ha registrado el punto')]); 
+      return back();
    }
 
    /**

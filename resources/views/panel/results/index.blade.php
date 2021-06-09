@@ -154,7 +154,7 @@
 					</a>
 				</div>
 				<div class="col-sm-12 col-md-6 text-right mt-4">
-					<form method="post" action="{{ route('panel.spaces.booking.store', $space) }}">
+					<form method="post" action="{{ route('panel.spaces.booking.confirm.store', $space) }}">
 						@csrf
 						<button type="submit" class="btn btn-dark">
 							Continuar con el pago

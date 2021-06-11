@@ -31,7 +31,7 @@ class RegisterController extends Controller
    *
    * @var string
    */
-   protected $redirectTo = 'documentos';//RouteServiceProvider::HOME;
+   protected $redirectTo = 'documents';//RouteServiceProvider::HOME;
 
    public function showRegistrationForm()
    {
@@ -84,6 +84,7 @@ class RegisterController extends Controller
          'nit' => $data['nit'],
          'company_name' => $data['company_name'],
          'password' => Hash::make($code),
+         'know' => $data['know']
       ]);
    }
 }

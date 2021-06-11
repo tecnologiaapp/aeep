@@ -21,12 +21,18 @@ class CreateUsersTable extends Migration
          $table->string('password');
 
          $table->unsignedBigInteger('document_type');
+         $table->unsignedBigInteger('population_group_id')->default(1);
+
          $table->foreign('document_type')->references('id')->on('document_types');
 
          $table->string('document_number', 50);
          $table->string('nit')->nullable();
          $table->boolean('active')->default(0);
          $table->string('company_name')->nullable();
+         $table->string('know')->default('Otro');
+
+         $table->string('address')->nullable();
+         $table->string('phone')->nullable();
          $table->rememberToken();
          $table->timestamps();
       });

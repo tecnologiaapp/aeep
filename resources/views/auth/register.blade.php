@@ -72,11 +72,11 @@
                <div class="form-group">
                   <label class="form-label" for="know">¿Cómo te enteraste del aplicativo?</label>
                   <select class="form-control form-control-lg @error('know') is-invalid @enderror" id="know" name="know">
-                     <option value="1">Me lo recomendó un conocido</option>
-                     <option value="2">Me informaron en un evento</option>
-                     <option value="3">Publicidad (TV, Redes sociales, papel)</option>
-                     <option value="4">Información directa de la AGENCIA APP</option>
-                     <option value="5">Otro</option>
+                     <option value="Me lo recomendó un conocido">Me lo recomendó un conocido</option>
+                     <option value="Me informaron en un evento">Me informaron en un evento</option>
+                     <option value="Publicidad (TV, Redes sociales, papel)">Publicidad (TV, Redes sociales, papel)</option>
+                     <option value="Información directa de la AGENCIA APP" selected>Información directa de la AGENCIA APP</option>
+                     <option value="Otro">Otro</option>
                   </select>
                   @error('know')
                   <span class="invalid-feedback" role="alert">

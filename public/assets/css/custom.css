@@ -1,1 +1,17 @@
-custom.css
+.alert-success {
+	color: #ffffff;
+	background-color: #29347a;
+	border-color: #29347a;
+}
+
+.btn-primary {
+	color: #fff;
+	background-color: #29347a;
+	border-color: #29347a;
+}
+
+.btn-primary:hover {
+	color: #fff;
+	background-color: #1a2250;
+	border-color: #1a2250;
+}

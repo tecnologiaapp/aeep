@@ -12,6 +12,14 @@ use Illuminate\Support\Facades\Route;
 | contains the "web" middleware group. Now create something great!
 |
 
+Para cambiar de correo electrónico:
+
+- Ejecutar:
+
+php artisan config:cache
+php artisan cache:clear
+php artisan clear
+composer dump-autoload
 
 Dos fuentes:
 
@@ -36,7 +44,11 @@ Route::get('/finalizar', function () {
 
 Auth::routes(['verify' => true]);
 
-Route::get('/documentos', [App\Http\Controllers\HomeController::class, 'finish'])->name('finish');
+//Route::get('/documents', [App\Http\Controllers\HomeController::class, 'finish'])->name('finish');
+Route::get('/documents', [App\Http\Controllers\Panel\User\UserDocumentController::class, 'index'])->name('user.documents.index');
+
+Route::post('/documents', [App\Http\Controllers\Panel\User\UserDocumentController::class, 'store'])->name('user.documents.store');
+
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
 /*

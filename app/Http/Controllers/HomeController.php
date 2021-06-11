@@ -26,9 +26,4 @@ class HomeController extends Controller
         return redirect()->route('panel.spaces.index');
         return view('home');
     }
-
-    public function finish()
-    {
-        return view('documents');
-    }
 }

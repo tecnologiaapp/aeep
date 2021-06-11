@@ -24,7 +24,11 @@ class User extends Authenticatable
       'document_number',
       'company',
       'nit',
-      'company_name'
+      'company_name',
+      'address',
+      'population_group_id',
+      'phone',
+      'know'
    ];
 
    /**

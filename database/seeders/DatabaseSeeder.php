@@ -9,6 +9,7 @@ use App\Models\Spaces\Mixture;
 use App\Models\Spaces\Space;
 use App\Models\User;
 use App\Models\User\DocumentType;
+use App\Models\User\PopulationGroup;
 use Illuminate\Database\Seeder;
 use Illuminate\Support\Facades\Hash;
 
@@ -30,12 +31,16 @@ class DatabaseSeeder extends Seeder
 			'current_ipc' =>	105.91
 		]);
 
+		PopulationGroup::create(['name' => 'Grupo poblacional 1']);
+		PopulationGroup::create(['name' => 'Grupo poblacional 2']);
+		PopulationGroup::create(['name' => 'Grupo poblacional 3']);
+
 		User::create([
 			'name' =>	'Brayan Angarita',
 			'email' => 'info@besoft.club',
 			'password' => Hash::make('AR23'),
 			'document_type' => 1,
-			'document_number' => '1093788803'
+			'document_number' => '1043788803'
 		]);
 
 		Mixture::create(['name' => 'Baja mixtura', 	'collection_percentage' 	=> 65]);

@@ -2,9 +2,8 @@
 @section('title', $space->code)
 
 @push('styles')
-<link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css"
-   integrity="sha512-xodZBNTC5n17Xt2atTPuE1HxjVMSvLVW9ocqUKLsCC5CXdbqCmblAshOMAS6/keqq/sMZMZ19scR4PsZChSR7A=="
-   crossorigin=""/>
+	<link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css" integrity="sha512-xodZBNTC5n17Xt2atTPuE1HxjVMSvLVW9ocqUKLsCC5CXdbqCmblAshOMAS6/keqq/sMZMZ19scR4PsZChSR7A==" crossorigin=""/>
+	<script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js" integrity="sha512-XQoYMqMTK8LvdxXYG3nZ448hOEQiglfqkJs1NOQV44cWnUrBc8PkAOcXy20w0vlaXaVUearIOBhiXZ5V3ynxwA==" crossorigin=""></script>
 @endpush
 
 @section('content')
@@ -15,10 +14,8 @@
 			@csrf
 			<div class="col-sm-12">
 				<div class="row">
-
-					<div class="col-sm-12 mb-4 border">
-						<iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3966.112873475963!2d-75.5712545846048!3d6.248854428027271!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8e4428ff50bf45ad%3A0xbefa9e6d18bf02c1!2sBolivar%20%2348-72%20a%2048-104%2C%20Medell%C3%ADn%2C%20Antioquia!5e0!3m2!1ses!2sco!4v1607898961848!5m2!1ses!2sco" width="100%" height="450" frameborder="0" style="border:0;" allowfullscreen="" aria-hidden="false" tabindex="0"></iframe>
-						{{-- <div id="map" style="width: 600px; height: 400px;"></div> --}}
+					<div class="col-sm-12 shadow-sm p-0 mb-5">
+						<div id="mapid" style="width: 100%; height: 600px;"></div>
 					</div>
 
 					<div class="col-sm-12 col-xl-4 mb-2">
@@ -36,7 +33,7 @@
 		               </select>
 		               @error('activity')
 		               <span class="invalid-feedback" role="alert">
-		                  <strong>{{ $message }}</strong>
+								<strong>{{ $message }}</strong>
 		               </span>
 		               @enderror
 		            </div>
@@ -44,14 +41,14 @@
 
 					<div class="col-sm-12 col-xl-4 mb-2">
 						<div class="form-group">
-		               <label class="form-label" for="date">Fecha a reservar</label>
-		               <input type="date" class="form-control form-control-lg @error('date') is-invalid @enderror" id="date" name="date">
+							<label class="form-label" for="date">Fecha a reservar</label>
+							<input type="date" class="form-control form-control-lg @error('date') is-invalid @enderror" id="date" name="date">
 
-		               @error('date')
-		               <span class="invalid-feedback" role="alert">
-		                  <strong>{{ $message }}</strong>
-		               </span>
-		               @enderror
+							@error('date')
+							<span class="invalid-feedback" role="alert">
+								<strong>{{ $message }}</strong>
+							</span>
+							@enderror
 		            </div>
 					</div>
 
@@ -68,19 +65,21 @@
 @endsection
 
 @push('scripts')
-<script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"
-   integrity="sha512-XQoYMqMTK8LvdxXYG3nZ448hOEQiglfqkJs1NOQV44cWnUrBc8PkAOcXy20w0vlaXaVUearIOBhiXZ5V3ynxwA=="
-   crossorigin=""></script>
+<script>
 
+	var mymap = L.map('mapid').setView([{{ $space->x_coordinate }}, {{ $space->y_coordinate }}], 15);
 
-   <script>
+	L.tileLayer('https://api.mapbox.com/styles/v1/{id}/tiles/{z}/{x}/{y}?access_token=pk.eyJ1IjoibWFwYm94IiwiYSI6ImNpejY4NXVycTA2emYycXBndHRqcmZ3N3gifQ.rJcFIG214AriISLbB6B5aw', {
+		maxZoom: 20,
+		id: 'mapbox/streets-v11',
+		tileSize: 512,
+		zoomOffset: -1
+	}).addTo(mymap);
 
-	var mymap = L.map('map').setView([51.505, -0.09], 13);
-
-L.tileLayer('http://{s}.tile.osm.org/{z}/{x}/{y}.png', {
-    attribution: '&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
-}).addTo(mymap);
-
+	L.marker([{{ $space->x_coordinate }}, {{ $space->y_coordinate }}]).addTo(mymap)
+	.bindPopup("<b> {{ $space->address }} ({{ $space->code }}) </b>").openPopup();
 </script>
 
 @endpush
+
+

@@ -18,6 +18,7 @@ Para cambiar de correo electrónico:
 
 php artisan config:cache
 php artisan cache:clear
+php artisan view:clear
 php artisan clear
 composer dump-autoload
 

@@ -302,6 +302,10 @@
 
       <!-- app-root @e -->
       <!-- JavaScript -->
+
+      <script src="{{ asset('assets/js/bundle.js?ver=2.4.0')}}"></script>
+      <script src="{{ asset('assets/js/scripts.js?ver=2.4.0')}}"></script>
+      
       <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
 
       @if(Session::has('info'))
@@ -315,7 +319,6 @@
       </script>
       @endif
 
-      <script src="{{ asset('assets/js/bundle.js?ver=2.4.0')}}"></script>
-      <script src="{{ asset('assets/js/scripts.js?ver=2.4.0')}}"></script>
+      @stack('scripts')
    </body>
 </html>

@@ -43,6 +43,21 @@ class SpacesController extends Controller
    */
    public function store(Request $request)
    {
+      $rules = [
+         'code' => 'required|max:25',
+         'address' => 'required',
+         'x_coordinate' => 'required',
+         'y_coordinate' => 'required',
+         'area' => 'required',
+         'geoeconomic_zone_id' => 'required',
+      ];
+
+      $customMessages = [
+         'required' => 'Este campo no puede estar en blanco.'
+      ];
+
+      $this->validate($request, $rules, $customMessages);
+
       $space = Space::create([
          'code' => $request->code,
          'address' => $request->address,

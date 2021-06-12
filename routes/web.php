@@ -12,6 +12,8 @@ use Illuminate\Support\Facades\Route;
 | contains the "web" middleware group. Now create something great!
 |
 
+https://scotch.io/tutorials/deep-dive-into-custom-validation-error-messages-in-laravel
+
 Para cambiar de correo electrónico:
 
 - Ejecutar:

@@ -17,7 +17,7 @@
             <div class="nk-block-head text-center">
                <div class="nk-block-head-content">
                   @if($email != NULL)
-                  <div class="alert alert-danger">
+                  <div class="alert alert-theme">
                      Hemos enviado un código a tu correo para que inicies sesión
                   </div>
                   @else

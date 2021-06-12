@@ -90,6 +90,7 @@ class DatabaseSeeder extends Seeder
 
 		Space::create([
 			'code'					=>	'SE-CBM-01',
+			'slug'					=>	'se-cbm-01',
 			'address'				=>	'CR 88 37A 37',
 			'x_coordinate'			=>	'6.1715013',
 			'y_coordinate'			=>	'-75.5908346',
@@ -100,6 +101,7 @@ class DatabaseSeeder extends Seeder
 
 		Space::create([
 			'code'					=>	'SE-CBM-02',
+			'slug'					=>	'se-cbm-02',
 			'address'				=>	'CR 88 37A 38',
 			'x_coordinate'			=>	'6.1715013',
 			'y_coordinate'			=>	'-75.5908346',
@@ -110,6 +112,7 @@ class DatabaseSeeder extends Seeder
 
 		Space::create([
 			'code'					=>	'SE-CBM-03',
+			'slug'					=>	'se-cbm-03',
 			'address'				=>	'CR 88 37A 39',
 			'x_coordinate'			=>	'6.1715013',
 			'y_coordinate'			=>	'-75.5908346',
@@ -120,6 +123,7 @@ class DatabaseSeeder extends Seeder
 
 		Space::create([
 			'code'					=>	'SE-CBM-04',
+			'slug'					=>	'se-cbm-04',
 			'address'				=>	'CR 88 37A 40',
 			'x_coordinate'			=>	'6.1715013',
 			'y_coordinate'			=>	'-75.5908346',
@@ -130,6 +134,7 @@ class DatabaseSeeder extends Seeder
 
 		Space::create([
 			'code'					=>	'SE-CBM-05',
+			'slug'					=>	'se-cbm-05',
 			'address'				=>	'CR 88 37A 41',
 			'x_coordinate'			=>	'6.1715013',
 			'y_coordinate'			=>	'-75.5908346',
@@ -140,6 +145,7 @@ class DatabaseSeeder extends Seeder
 
 		Space::create([
 			'code'					=>	'SE-CBM-06',
+			'slug'					=>	'se-cbm-06',
 			'address'				=>	'CR 88 37A 42',
 			'x_coordinate'			=>	'6.1715013',
 			'y_coordinate'			=>	'-75.5908346',
@@ -150,6 +156,7 @@ class DatabaseSeeder extends Seeder
 
 		Space::create([
 			'code'					=>	'SE-CBM-07',
+			'slug'					=>	'se-cbm-07',
 			'address'				=>	'CR 88 37A 43',
 			'x_coordinate'			=>	'6.1715013',
 			'y_coordinate'			=>	'-75.5908346',
@@ -160,6 +167,7 @@ class DatabaseSeeder extends Seeder
 
 		Space::create([
 			'code'					=>	'SE-CBM-08',
+			'slug'					=>	'se-cbm-08',
 			'address'				=>	'CR 88 37A 44',
 			'x_coordinate'			=>	'6.1715013',
 			'y_coordinate'			=>	'-75.5908346',
@@ -170,6 +178,7 @@ class DatabaseSeeder extends Seeder
 
 		Space::create([
 			'code'					=>	'SE-CBM-09',
+			'slug'					=>	'se-cbm-09',
 			'address'				=>	'CR 88 37A 45',
 			'x_coordinate'			=>	'6.1715013',
 			'y_coordinate'			=>	'-75.5908346',
@@ -180,6 +189,7 @@ class DatabaseSeeder extends Seeder
 
 		Space::create([
 			'code'					=>	'SE-CBM-10',
+			'slug'					=>	'se-cbm-10',
 			'address'				=>	'CR 88 37A 46',
 			'x_coordinate'			=>	'6.1715013',
 			'y_coordinate'			=>	'-75.5908346',
@@ -190,6 +200,7 @@ class DatabaseSeeder extends Seeder
 
 		Space::create([
 			'code'					=>	'SE-CBM-11',
+			'slug'					=>	'se-cbm-11',
 			'address'				=>	'CR 88 37A 47',
 			'x_coordinate'			=>	'6.1715013',
 			'y_coordinate'			=>	'-75.5908346',
@@ -200,6 +211,7 @@ class DatabaseSeeder extends Seeder
 
 		Space::create([
 			'code'					=>	'SE-CBM-12',
+			'slug'					=>	'se-cbm-12',
 			'address'				=>	'CR 88 37A 48',
 			'x_coordinate'			=>	'6.1715013',
 			'y_coordinate'			=>	'-75.5908346',
@@ -210,6 +222,7 @@ class DatabaseSeeder extends Seeder
 
 		Space::create([
 			'code'					=>	'SE-CBM-13',
+			'slug'					=>	'se-cbm-13',
 			'address'				=>	'CR 88 37A 49',
 			'x_coordinate'			=>	'6.1715013',
 			'y_coordinate'			=>	'-75.5908346',
@@ -220,6 +233,7 @@ class DatabaseSeeder extends Seeder
 
 		Space::create([
 			'code'					=>	'SE-CBM-14',
+			'slug'					=>	'se-cbm-14',
 			'address'				=>	'CR 88 37A 50',
 			'x_coordinate'			=>	'6.1715013',
 			'y_coordinate'			=>	'-75.5908346',
@@ -230,6 +244,7 @@ class DatabaseSeeder extends Seeder
 
 		Space::create([
 			'code'					=>	'SE-CBM-15',
+			'slug'					=>	'se-cbm-15',
 			'address'				=>	'CR 88 37A 51',
 			'x_coordinate'			=>	'6.1715013',
 			'y_coordinate'			=>	'-75.5908346',
@@ -240,6 +255,7 @@ class DatabaseSeeder extends Seeder
 
 		Space::create([
 			'code'					=>	'SE-CBM-16',
+			'slug'					=>	'se-cbm-16',
 			'address'				=>	'CR 88 37A 52',
 			'x_coordinate'			=>	'6.1715013',
 			'y_coordinate'			=>	'-75.5908346',
@@ -250,6 +266,7 @@ class DatabaseSeeder extends Seeder
 
 		Space::create([
 			'code'					=>	'SE-CBM-17',
+			'slug'					=>	'se-cbm-17',
 			'address'				=>	'CR 88 37A 53',
 			'x_coordinate'			=>	'6.1715013',
 			'y_coordinate'			=>	'-75.5908346',
@@ -260,6 +277,7 @@ class DatabaseSeeder extends Seeder
 
 		Space::create([
 			'code'					=>	'SE-CBM-18',
+			'slug'					=>	'se-cbm-18',
 			'address'				=>	'CR 88 37A 50',
 			'x_coordinate'			=>	'6.1715013',
 			'y_coordinate'			=>	'-75.5908346',

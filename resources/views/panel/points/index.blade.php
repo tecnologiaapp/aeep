@@ -25,8 +25,8 @@
 						<th scope="row">{{$space->code}}</th>
 						<td>{{$space->address}}</td>
 						<td>{{$space->area}}</td>
-						<td>
-							<a href="https://upload.wikimedia.org/wikipedia/commons/d/d7/Commons_QR_code.png" target="_blank">
+						<td> 
+							<a href="{{ route('panel.qr.show', $space) }}" target="_blank">
 								Ver QR
 							</a>
 						</td>

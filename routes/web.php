@@ -62,6 +62,13 @@ Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name
 
 Route::get('/panel/spaces/bookings', [App\Http\Controllers\Panel\Spaces\BookingController::class, 'index'])->name('panel.bookings.index')->middleware(['auth', 'verified']);
 
+Route::post('/panel/spaces/booking/{space}/confirm', [App\Http\Controllers\Panel\Spaces\BookingController::class, 'store'])->name('panel.spaces.booking.confirm.store')->middleware(['auth', 'verified']);
+
+/*
+|--------------------------------------------------------------------------
+| Spaces
+|--------------------------------------------------------------------------
+*/
 
 Route::get('/panel/spaces/list', [App\Http\Controllers\Panel\Spaces\SpacesController::class, 'index'])->name('panel.spaces.index')->middleware(['auth', 'verified']);
 
@@ -73,7 +80,13 @@ Route::get('/panel/spaces/{space}', [App\Http\Controllers\Panel\Spaces\SpacesCon
 
 Route::post('/panel/spaces/booking/{space}', [App\Http\Controllers\Panel\Spaces\CalculateCostController::class, 'store'])->name('panel.spaces.booking.store')->middleware(['auth', 'verified']);
 
-Route::post('/panel/spaces/booking/{space}/confirm', [App\Http\Controllers\Panel\Spaces\BookingController::class, 'store'])->name('panel.spaces.booking.confirm.store')->middleware(['auth', 'verified']);
+/*
+|--------------------------------------------------------------------------
+| QR
+|--------------------------------------------------------------------------
+*/
+
+Route::get('/panel/qr/{space}', [App\Http\Controllers\Panel\Spaces\QRController::class, 'show'])->name('panel.qr.show')->middleware(['auth', 'verified']);
 
 //Auth - Codes
 Route::get('/get-code', [App\Http\Controllers\Auth\SendCodeController::class, 'index'])->name('user.code.index');

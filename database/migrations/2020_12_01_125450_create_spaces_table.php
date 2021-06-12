@@ -16,6 +16,7 @@ class CreateSpacesTable extends Migration
       Schema::create('spaces', function (Blueprint $table) {
          $table->id();
          $table->string('code'); //ID del espacio
+         $table->string('slug')->unique(); //Código para encontrar el espacio
          $table->string('address');
          $table->string('x_coordinate')->nullable();
          $table->string('y_coordinate')->nullable();

@@ -9,25 +9,23 @@ use App\Models\Spaces\Mixture;
 use App\Models\Spaces\Space;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Session;
+use Illuminate\Support\Str;
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Storage;
 
 class SpacesController extends Controller
 {
-   /**
-   * Display a listing of the resource.
-   *
-   * @return \Illuminate\Http\Response
-   */
+   public function __construct()
+   {
+      $this->middleware('auth');
+   }
+
    public function index()
    {
       $spaces = Space::with('mixture')->latest()->get();
       return view('panel.points.index', compact('spaces'));
    }
 
-   /**
-   * Show the form for creating a new resource.
-   *
-   * @return \Illuminate\Http\Response
-   */
    public function create()
    {
       $geoeconomic_zones = GeoeconomicZone::orderBy('price', 'ASC')->get();
@@ -35,12 +33,6 @@ class SpacesController extends Controller
       return view('panel.points.create', compact(['mixtures', 'geoeconomic_zones']));
    }
 
-   /**
-   * Store a newly created resource in storage.
-   *
-   * @param  \Illuminate\Http\Request  $request
-   * @return \Illuminate\Http\Response
-   */
    public function store(Request $request)
    {
       $rules = [

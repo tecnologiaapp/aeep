@@ -88,8 +88,20 @@ Route::post('/panel/spaces/booking/{space}', [App\Http\Controllers\Panel\Spaces\
 
 Route::get('/panel/qr/{space}', [App\Http\Controllers\Panel\Spaces\QRController::class, 'show'])->name('panel.qr.show')->middleware(['auth', 'verified']);
 
-//Auth - Codes
+/*
+|--------------------------------------------------------------------------
+| Auth - Codes // Se genera un código para iniciar sesión
+|--------------------------------------------------------------------------
+*/
 Route::get('/get-code', [App\Http\Controllers\Auth\SendCodeController::class, 'index'])->name('user.code.index');
 Route::post('/get-code', [App\Http\Controllers\Auth\SendCodeController::class, 'store'])->name('user.code.store');
 
+/*
+|--------------------------------------------------------------------------
+| Users
+|--------------------------------------------------------------------------
+*/
 
+Route::get('/panel/users', [App\Http\Controllers\Panel\User\UsersController::class, 'index'])->name('panel.users.index')->middleware(['auth', 'role:Admin|Biller|Collaborator|Reviewer']);
+
+Route::get('/panel/users/{user}', [App\Http\Controllers\Panel\User\UsersController::class, 'show'])->name('panel.users.show')->middleware(['auth', 'role:Admin|Biller|Collaborator|Reviewer']);

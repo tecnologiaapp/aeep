@@ -42,6 +42,7 @@ class DatabaseSeeder extends Seeder
 			'email' => 'anibal.olarte@app.gov.co',
 			'password' => Hash::make('AR23'),
 			'document_type' => 1,
+			'active' => 1,
 			'document_number' => '0'
 		]);
 
@@ -50,6 +51,7 @@ class DatabaseSeeder extends Seeder
 			'email' => 'brayan.angarita@app.gov.co',
 			'password' => Hash::make('AR23'),
 			'document_type' => 1,
+			'active' => 1,
 			'document_number' => '0'
 		]);
 
@@ -58,6 +60,7 @@ class DatabaseSeeder extends Seeder
 			'email' => 'julian.hernandez@app.gov.co',
 			'password' => Hash::make('AR23'),
 			'document_type' => 1,
+			'active' => 1,
 			'document_number' => '0'
 		]);
 

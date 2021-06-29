@@ -5,7 +5,7 @@
       <meta name="author" content="Agencia APP - Alcaldía de Medellín. Desarrollado por Brayan Angarita" />
       <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
       <meta name="description" content="Aplicativo para reservar espacios de espacio público en Medellín - AGENCIA APP" />
-      <link rel="shortcut icon" href="{{ asset('logo.png') }}" />
+      <link rel="shortcut icon" href="{{ asset('logo_white.png') }}" />
       <title>@yield('title', 'AEEP') - AGENCIA APP</title>
       <!-- Fav Icon  -->
       <link rel="shortcut icon" href="./images/favicon.png" />
@@ -30,8 +30,8 @@
 
                      <div class="nk-header-brand">
                         <a href="{{ url('/') }}" class="logo-link">
-                           <img class="logo-light logo-img" src="{{ asset('logo.png')}}" srcset="{{ asset('logo.png')}} 2x" alt="Puntos de AEE" />
-                           <img class="logo-dark logo-img" src="{{ asset('logo.png')}}" srcset="{{ asset('logo.png')}} 2x" alt="Puntos de AEE" />
+                           <img class="logo-light logo-img" src="{{ asset('logo_white.png')}}" srcset="{{ asset('logo_white.png')}} 2x" alt="Puntos de AEE" />
+                           <img class="logo-dark logo-img" src="{{ asset('logo_white.png')}}" srcset="{{ asset('logo_white.png')}} 2x" alt="Puntos de AEE" />
                         </a>
                      </div>
                      <!-- .nk-header-brand -->
@@ -40,8 +40,8 @@
                         <div class="nk-header-mobile">
                            <div class="nk-header-brand">
                               <a href="{{ url('/') }}" class="logo-link">
-                                 <img class="logo-light logo-img" src="{{ asset('logo.png')}}" srcset="{{ asset('logo.png')}} 2x" alt="logo" />
-                                 <img class="logo-dark logo-img" src="{{ asset('logo.png')}}" srcset="{{ asset('logo.png')}} 2x" alt="logo-dark" />
+                                 <img class="logo-light logo-img" src="{{ asset('logo_white.png')}}" srcset="{{ asset('logo_white.png')}} 2x" alt="logo" />
+                                 <img class="logo-dark logo-img" src="{{ asset('logo_white.png')}}" srcset="{{ asset('logo_white.png')}} 2x" alt="logo-dark" />
                               </a>
                            </div>
 
@@ -50,50 +50,7 @@
                            </div>
                         </div>
 
-                        <ul class="nk-menu nk-menu-main ui-s2">
-                           <!-- Menu items -->
-                           <li class="nk-menu-item has-sub">
-                              <a href="#" class="nk-menu-link nk-menu-toggle">
-                                 <span class="nk-menu-text">Puntos AEEP</span>
-                              </a>
-
-                              <ul class="nk-menu-sub">
-                                 <li class="nk-menu-item">
-                                    <a href="{{ route('panel.spaces.index') }}" class="nk-menu-link">
-                                       <span class="nk-menu-text">Todos los puntos</span>
-                                    </a>
-                                 </li>
-                                 <!-- .nk-menu-item -->
-
-                                 <li class="nk-menu-item">
-                                    <a href="{{ route('panel.spaces.create') }}" class="nk-menu-link">
-                                       <span class="nk-menu-text">Agregar punto</span>
-                                    </a>
-                                 </li>
-                                 <!-- .nk-menu-item -->
-                              </ul>
-                              <!-- .nk-menu-sub -->
-                           </li>
-                           <!-- .nk-menu-item -->
-
-                           <li class="nk-menu-item has-sub">
-                              <a href="#" class="nk-menu-link nk-menu-toggle">
-                                 <span class="nk-menu-text">Solicitudes</span>
-                              </a>
-
-                              <ul class="nk-menu-sub">
-                                 <li class="nk-menu-item">
-                                    <a href="{{ route('panel.bookings.index') }}" class="nk-menu-link">
-                                       <span class="nk-menu-text">Mis solicitudes</span>
-                                    </a>
-                                 </li>
-                                 <!-- .nk-menu-item -->
-                              </ul>
-                              <!-- .nk-menu-sub -->
-                           </li>
-                           <!-- .nk-menu-item -->
-                           <!-- /Menu items -->
-                        </ul>
+                        @include('panel.includes.menu._top-menu')
                         <!-- .nk-menu -->
                      </div>
                      <!-- .nk-header-menu -->
@@ -139,8 +96,14 @@
                                        <em class="icon ni ni-user-alt"></em>
                                     </div>
                                     <div class="user-info d-none d-xl-block">
-                                       <div class="user-status">Administrador</div>
-                                       <div class="user-name dropdown-indicator">Brayan Angarita</div>
+                                       <div class="user-status">
+                                          @role('Admin|Reviewer|Biller')
+                                             Colaborador
+                                          @else
+                                             Usuario
+                                          @endrole
+                                       </div>
+                                       <div class="user-name dropdown-indicator">{{ Auth::user()->name }}</div>
                                     </div>
                                  </div>
                               </a>

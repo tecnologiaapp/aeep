@@ -73,7 +73,7 @@ class UserDocumentController extends Controller
             'user_id' => $user_id
          ]);
 
-         Session::flash('info', ['success', __('Revisaremos tu cuenta y te notificaremos cuando esté activa')]); 
+         Session::flash('info', ['success', __('Revisaremos tu cuenta y te notificaremos vía correo electrónico cuando terminemos.')]); 
          return back();
       }
 

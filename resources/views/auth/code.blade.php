@@ -43,7 +43,7 @@
                @if($email == NULL)
                <div class="form-group text-center mb-3">
                   <label class="form-label" for="email">Correo electrónico</label>
-                  <input type="email" class="form-control form-control-lg @error('email') is-invalid @enderror" id="email" name="email" placeholder="Ingresa tu correo electrónicos">
+                  <input type="email" class="form-control form-control-lg @error('email') is-invalid @enderror" id="email" name="email" placeholder="Ingresa tu correo electrónico">
                   @error('email')
                   <span class="invalid-feedback" role="alert">
                      <strong>{{ $message }}</strong>
@@ -54,7 +54,7 @@
 
                <div class="form-group text-center">
                   <label class="form-label" for="password">Código que llegó a tu correo</label>
-                  <input type="password" class="form-control form-control-lg @error('password') is-invalid @enderror" id="password" name="password" placeholder="Ingresa tu correo electrónico o número de documento">
+                  <input type="password" class="form-control form-control-lg @error('password') is-invalid @enderror" id="password" name="password" placeholder="Ingresa el código que llegó a tu correo">
                   @error('password')
                   <span class="invalid-feedback" role="alert">
                      <strong>{{ $message }}</strong>

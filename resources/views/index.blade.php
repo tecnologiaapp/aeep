@@ -24,7 +24,7 @@
 		<!-- Stylesheet Responsive CSS -->
 		<link rel="stylesheet" href="{{ asset('user/assets/css/responsive.css')}}">
 		<!-- Favicon -->
-		<link rel="icon" type="images/png" href="{{ asset('assets/img/logo.svg')}}">
+		<link rel="icon" type="images/png" href="{{ asset('logo_white.png')}}">
 		<!-- Title -->
 		<title>AEEP - Puntos de aprovechamiento - Agencia APP</title>
 	</head>
@@ -44,7 +44,7 @@
 		<nav class="navbar fixed-top navbar-expand-lg main-navbar app-nav">
 			<div class="container">
 				<a class="navbar-brand" href="{{ url('/') }}">
-					<img src="{{ asset('assets/img/logo.svg')}}" alt="logo" width="40">
+					<img src="{{ asset('logo_white.png')}}" alt="logo" width="100">
 				</a>
 
 				<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -56,14 +56,18 @@
 				<div class="collapse navbar-collapse" id="navbarSupportedContent">
 					<ul class="navbar-nav m-auto">
 						<li class="nav-item">
-							<a class="nav-link" href="">Puntos AEEP</a>
+							<a class="nav-link" href="{{ route('panel.spaces.index') }}">Puntos AEEP</a>
 						</li>
 						<li class="nav-item">
-							<a class="nav-link" href="">Contáctanos</a>
+							<a class="nav-link" href="https://www.app.gov.co/transparencia/contacto" target="_blank">Contáctanos</a>
 						</li>                                                                
 					</ul>
 					<div class="nav-btn">
+						@guest
 						<a href="{{ route('login') }}" class="default-btn bg-main">Ingresar / Registrarse</a>
+						@else
+						<a href="{{ route('panel.spaces.index') }}" class="default-btn bg-main">Ver espacios</a>
+						@endguest
 					</div>
 				</div>
 			</div>
@@ -205,7 +209,7 @@
 					<div class="col-lg-4 col-sm-6">
 						<div class="footer-widget">
 							<div class="logo">
-								<img src="{{ asset('assets/img/logo.svg')}}" alt="logo" width="100">
+								<img src="{{ asset('logo_white.png')}}" alt="logo" width="100">
 							</div>
 
 							<p>Síguenos en nuestras redes sociales.</p>

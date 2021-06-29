@@ -17,7 +17,7 @@ class SpacesController extends Controller
 {
    public function __construct()
    {
-      $this->middleware('auth');
+      $this->middleware(['auth', 'role:Admin|Biller|Collaborator|Reviewer'])->except(['index', 'show']);
    }
 
    public function index()
@@ -72,8 +72,14 @@ class SpacesController extends Controller
    */
    public function show(Space $space)
    {
-      $economic_activities = EconomicActivity::all();
-      return view('panel.points.show', compact(['space', 'economic_activities']));
+      if (Auth::user()->active == 1){
+         $economic_activities = EconomicActivity::all();
+         return view('panel.points.show', compact(['space', 'economic_activities']));
+      }
+
+      Session::flash('info', ['error', __('Tu cuenta aún no está activada. Contáctanos si el problema persiste.')]); 
+      return redirect()->route('panel.spaces.index');
+      
    }
 
    /**

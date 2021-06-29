@@ -51,7 +51,7 @@
 
                <div class="form-group mb-3">
                   <label class="form-label" for="phone">Número de teléfono</label>
-                  <input type="text" class="form-control form-control-lg @error('phone') is-invalid @enderror" value="{{ Auth::user()->phone }}" id="phone" name="phone" placeholder="Ingresa tu número de teléfono">
+                  <input type="text" class="form-control form-control-lg @error('phone') is-invalid @enderror" value="{{ Auth::user()->phone }}" id="phone" name="phone" placeholder="Ingresa un número de teléfono para contactarte">
                   @error('phone')
                   <span class="invalid-feedback" role="alert">
                      <strong>{{ $message }}</strong>

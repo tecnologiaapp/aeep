@@ -111,28 +111,28 @@
                                  <div class="dropdown-inner user-card-wrap bg-lighter d-none d-md-block">
                                     <div class="user-card">
                                        <div class="user-avatar">
-                                          <span>BA</span>
+                                          <span>{{ Auth::user()->initials }}</span>
                                        </div>
                                        <div class="user-info">
-                                          <span class="lead-text">Brayan Angarita</span>
-                                          <span class="sub-text">brayan.angarita@app.gov.co</span>
+                                          <span class="lead-text">{{ Auth::user()->name }}</span>
+                                          <span class="sub-text">{{ Auth::user()->email }}</span>
                                        </div>
                                        <div class="user-action">
-                                          <a class="btn btn-icon mr-n2" href="html/invest/profile-setting.html"><em class="icon ni ni-setting"></em></a>
+                                          <a class="btn btn-icon mr-n2" href="#"><em class="icon ni ni-setting"></em></a>
                                        </div>
                                     </div>
                                  </div>
                                  <div class="dropdown-inner user-account-info">
                                     <h6 class="overline-title-alt">Balance</h6>
-                                    <div class="user-balance">1,494 <small class="currency currency-usd">COP</small></div>
+                                    <div class="user-balance">0 <small class="currency currency-usd">COP</small></div>
                                  </div>
                                  <div class="dropdown-inner">
                                     <ul class="link-list">
                                        <li>
-                                          <a href="html/invest/profile.html"><em class="icon ni ni-user-alt"></em><span>Ver perfil</span></a>
+                                          <a href="#"><em class="icon ni ni-user-alt"></em><span>Ver perfil</span></a>
                                        </li>
                                        <li>
-                                          <a href="html/invest/profile-setting.html"><em class="icon ni ni-setting-alt"></em><span>Configuración</span></a>
+                                          <a href="#"><em class="icon ni ni-setting-alt"></em><span>Configuración</span></a>
                                        </li>
                                        {{--
                                        <li>

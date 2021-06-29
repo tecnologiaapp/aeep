@@ -22,7 +22,11 @@
 				<tbody>
 					@foreach($spaces as $space)
 					<tr>
-						<th scope="row">{{$space->code}}</th>
+						<th scope="row">
+							<a href="{{ route('panel.spaces.show', $space) }}" >
+								{{$space->code}}
+							</a>
+						</th>
 						<td>{{$space->address}}</td>
 						<td>{{$space->area}}</td>
 						<td> 

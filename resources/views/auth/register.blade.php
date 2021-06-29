@@ -123,7 +123,7 @@
 
                <div class="form-group">
                   <div class="custom-control custom-control-xs custom-checkbox">
-                     <input type="checkbox" class="custom-control-input @error('company_name') is-invalid @enderror" id="tyc">
+                     <input type="checkbox" class="custom-control-input @error('company_name') is-invalid @enderror" checked id="tyc">
                      <label class="custom-control-label" for="tyc">Acepto las <a href="#">políticas de privacidad </a> y el <a href="#">tratamiento de datos personales</a>.</label>
                   </div>
                </div>
@@ -147,9 +147,9 @@
          let selected_option = $('input:radio[name=company]:checked').val();
 
          if (selected_option == 'yes') {
-            $('#isCompany').fadeIn(1000);
+            $('#isCompany').fadeIn(200);
          } else {
-            $('#isCompany').fadeOut(1000);
+            $('#isCompany').fadeOut(200);
          }
       });
    </script>

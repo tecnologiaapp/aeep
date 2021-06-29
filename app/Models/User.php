@@ -18,8 +18,10 @@ class User extends Authenticatable
    * @var array
    */
 
+   //Este es el Guard por defecto para asignar roles
    protected $guard_name = 'web';
    
+   //Campos permitidos para llenar en la base de datos
    protected $fillable = [
       'name',
       'email',
@@ -53,4 +55,15 @@ class User extends Authenticatable
    protected $casts = [
       'email_verified_at' => 'datetime',
    ];
+
+   //Obtener las iniciales
+   public function getInitialsAttribute(){
+      $name = $this->name;
+      $name_array = explode(' ',trim($name));
+
+      $firstWord = $name_array[0];
+      $lastWord = $name_array[count($name_array)-1];
+
+      return $firstWord[0]."".$lastWord[0];
+   }
 }

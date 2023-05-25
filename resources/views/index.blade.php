@@ -19,8 +19,8 @@
 		<!-- Odometer CSS -->
 		<link rel="stylesheet" href="{{ asset('user/assets/css/odometer.css')}}">
 		<!-- Stylesheet CSS -->
-		<link rel="stylesheet" href="{{ asset('user/assets/css/styl.css')}}">
-		<link rel="stylesheet" href="{{ asset('user/assets/css/custo.css')}}">
+		<link rel="stylesheet" href="{{ asset('user/assets/css/styloz.css')}}">
+		<link rel="stylesheet" href="{{ asset('user/assets/css/custodio.css')}}">
 		<!-- Stylesheet Responsive CSS -->
 		<link rel="stylesheet" href="{{ asset('user/assets/css/responsive.css')}}">
 		<!-- Favicon -->

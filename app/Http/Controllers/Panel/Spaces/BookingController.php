@@ -18,7 +18,7 @@ class BookingController extends Controller
      */
     public function index()
     {
-        $bookings = Booking::where('user_id', Auth::id())->latest()->get();
+        $bookings = Booking::where('user_id', Auth::id())->latest()->paginate(6);
         return view('panel.bookings.index', compact('bookings'));
     }
 

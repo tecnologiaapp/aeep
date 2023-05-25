@@ -7,10 +7,10 @@
 			<b>¡Atención!</b> La venta de licores es una actividad no permitida
 		</div>
 	</div>
-
-<div class="card card-preview">
+	<div class="row justify-content-center">
+<div class="card card-preview col-md-10">
 	<div class="card-inner mt-3">
-		<div class="row">
+		
 
 			<div class="col-sm-12 col-xl-8 offset-xl-2 mb-2">
 				<div class="text-center">
@@ -148,20 +148,19 @@
 				</div>
 
 				<div class="row">
-					<div class="col-sm-12 col-md-6 mt-4">
-					<a href="{{ route('panel.spaces.show', $space) }}" class="btn btn-danger">
-						Rechazar proceso
+				<div class="col-sm-12 d-flex justify-content-between mt-2 mb-4">
+					<a href="{{ route('panel.spaces.show', $space) }}" class="btn-red">
+					Rechazar proceso
 					</a>
-				</div>
-				<div class="col-sm-12 col-md-6 text-right mt-4">
 					<form method="post" action="{{ route('panel.spaces.booking.confirm.store', $space) }}">
-						@csrf
-						<button type="submit" class="btn btn-dark">
-							Continuar con el pago
-						</button>
+					@csrf
+					<button type="submit" class="btn-blue">
+						Continuar con el pago
+					</button>
 					</form>
 				</div>
 				</div>
+				
 
 			</div>
 
@@ -169,5 +168,6 @@
 
 		
 	</div>	
-</div><!-- .card-preview -->
+</div>
+<!-- .card-preview -->
 @endsection

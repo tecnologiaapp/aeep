@@ -9,9 +9,9 @@
       <title>@yield('title', 'AEEP') - AGENCIA APP</title>
       <!-- Fav Icon  -->
       <link rel="shortcut icon" href="./images/favicon.png">
-      <link rel="stylesheet" href="{{ asset('assets/css/dashlite.css?ver=2.4.0')}}">
+      <link rel="stylesheet" href="{{ asset('assets/css/dashlit.css?ver=2.4.0')}}">
       <link id="skin-default" rel="stylesheet" href="{{ asset('assets/css/theme.css?ver=2.4.0')}}">
-      <link rel="stylesheet" href="{{ asset('assets/css/custom.css')}}">
+      <link rel="stylesheet" href="{{ asset('assets/css/custo.css')}}">
 
       @stack('styles')
    </head>

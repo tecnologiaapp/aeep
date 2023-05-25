@@ -7,13 +7,13 @@
 }
 
 .app-banner-area .app-bennr-text .app-btn .app-btn-1 {
-    background-color: #242424;
-    border: 1px solid #c7eeff;
-    color: #ffffff;
+    background-color: #ffffff;
+    border: 1px solid #000000;
+    color: #000000;
 }
 
 .app-banner-area .app-bennr-text .app-btn .app-btn-1:hover {
-    background-color: #ffffff;
+    background-color: #3498db;
     color: #242424;
 }
 
@@ -37,6 +37,6 @@
 }
 
 .app-banner-area .app-bennr-text .app-btn .app-btn-2:hover {
-    background-color: #2d2929;
+    background-color: #b3348a;
     color: #ffffff;
 }

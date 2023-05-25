@@ -37,49 +37,49 @@ class DatabaseSeeder extends Seeder
 		PopulationGroup::create(['name' => 'Grupo poblacional 2']);
 		PopulationGroup::create(['name' => 'Grupo poblacional 3']);
 
-		$admin_1 = User::create([
-			'name' =>	'Anibal Olarte',
-			'email' => 'anibal.olarte@app.gov.co',
-			'password' => Hash::make('AR23'),
-			'document_type' => 1,
-			'active' => 1,
-			'document_number' => '0'
-		]);
+		// $admin_1 = User::create([
+		// 	'name' =>	'Anibal Olarte',
+		// 	'email' => 'anibal.olarte@app.gov.co',
+		// 	'password' => Hash::make('AR23'),
+		// 	'document_type' => 1,
+		// 	'active' => 1,
+		// 	'document_number' => '0'
+		// ]);
 
-		$admin_2 = User::create([
-			'name' =>	'Brayan Angarita',
-			'email' => 'brayan.angarita@app.gov.co',
-			'password' => Hash::make('AR23'),
-			'document_type' => 1,
-			'active' => 1,
-			'document_number' => '0'
-		]);
+		// $admin_2 = User::create([
+		// 	'name' =>	'Brayan Angarita',
+		// 	'email' => 'brayan.angarita@app.gov.co',
+		// 	'password' => Hash::make('AR23'),
+		// 	'document_type' => 1,
+		// 	'active' => 1,
+		// 	'document_number' => '0'
+		// ]);
 
-		$biller = User::create([
-			'name' =>	'Julián Hernández',
-			'email' => 'julian.hernandez@app.gov.co',
-			'password' => Hash::make('AR23'),
-			'document_type' => 1,
-			'active' => 1,
-			'document_number' => '0'
-		]);
+		// $biller = User::create([
+		// 	'name' =>	'Julián Hernández',
+		// 	'email' => 'julian.hernandez@app.gov.co',
+		// 	'password' => Hash::make('AR23'),
+		// 	'document_type' => 1,
+		// 	'active' => 1,
+		// 	'document_number' => '0'
+		// ]);
 
-		//Crear los roles Administrador, Revisor y Facturador
-		$role_admin = Role::create(['name' => 'Admin']);
-		$role_reviewer = Role::create(['name' => 'Reviewer']);
-		$role_biller = Role::create(['name' => 'Biller']);
-		$role_collaborator = Role::create(['name' => 'Collaborator']);
+		// //Crear los roles Administrador, Revisor y Facturador
+		// $role_admin = Role::create(['name' => 'Admin']);
+		// $role_reviewer = Role::create(['name' => 'Reviewer']);
+		// $role_biller = Role::create(['name' => 'Biller']);
+		// $role_collaborator = Role::create(['name' => 'Collaborator']);
 
-		//Asignar los roles a los usuarios
-		// - Administrador a Aníbal Olarte y Brayan Angarita
-		$admin_1->assignRole($role_admin);
-		$admin_2->assignRole($role_admin);
+		// //Asignar los roles a los usuarios
+		// // - Administrador a Aníbal Olarte y Brayan Angarita
+		// $admin_1->assignRole($role_admin);
+		// $admin_2->assignRole($role_admin);
 
-		// - Revisor a X usuario (se debe crear el usuario primero)
-		//$reviewer->assignRole($role_reviewer);
+		// // - Revisor a X usuario (se debe crear el usuario primero)
+		// //$reviewer->assignRole($role_reviewer);
 
-		// - Facturador a Julián Hernández
-		$biller->assignRole($role_biller);
+		// // - Facturador a Julián Hernández
+		// $biller->assignRole($role_biller);
 
 		Mixture::create(['name' => 'Baja mixtura', 	'collection_percentage' 	=> 65]);
 		Mixture::create(['name' => 'Media mixtura', 'collection_percentage' 	=> 40]);

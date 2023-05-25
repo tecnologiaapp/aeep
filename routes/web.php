@@ -24,13 +24,6 @@ php artisan view:clear
 php artisan clear
 composer dump-autoload
 
-Dos fuentes:
-
-- Venteros caracterizados por espacio público
-- Comerciantes formales e informales
-- Sisbén
-- Reserva mínima: 2 días antes de la ocupación
-- Se bloquea el punto - En proceso de reserva
 */
 
 Route::get('/', function () {
@@ -102,6 +95,6 @@ Route::post('/get-code', [App\Http\Controllers\Auth\SendCodeController::class, '
 |--------------------------------------------------------------------------
 */
 
-Route::get('/panel/users', [App\Http\Controllers\Panel\User\UsersController::class, 'index'])->name('panel.users.index')->middleware(['auth', 'role:Admin|Biller|Collaborator|Reviewer']);
+Route::get('/panel/users', [App\Http\Controllers\Panel\User\UsersController::class, 'index'])->name('panel.users.index')->middleware(['auth', 'verified']);
 
-Route::get('/panel/users/{user}', [App\Http\Controllers\Panel\User\UsersController::class, 'show'])->name('panel.users.show')->middleware(['auth', 'role:Admin|Biller|Collaborator|Reviewer']);
+Route::get('/panel/users/{user}', [App\Http\Controllers\Panel\User\UsersController::class, 'show'])->name('panel.users.show')->middleware(['auth', 'verified']);

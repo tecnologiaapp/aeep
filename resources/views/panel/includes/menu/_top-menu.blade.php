@@ -14,13 +14,13 @@
          </li>
          <!-- .nk-menu-item -->
 
-         @role(['Admin|Biller|Collaborator|Reviewer'])
+         @if (Auth::user()->rol == 'Admin')
          <li class="nk-menu-item">
             <a href="{{ route('panel.spaces.create') }}" class="nk-menu-link">
                <span class="nk-menu-text">Agregar punto</span>
             </a>
          </li>
-         @endrole
+         @endif
 
          <!-- .nk-menu-item -->
       </ul>
@@ -46,7 +46,7 @@
    </li>
    <!-- /Bookings item -->
 
-   @role(['Admin'])
+   @if (Auth::user()->rol == 'Admin')
    <!-- Users item -->
    <li class="nk-menu-item has-sub">
       <a href="#" class="nk-menu-link nk-menu-toggle">
@@ -82,6 +82,6 @@
       <!-- .nk-menu-sub -->
    </li>
    <!-- /Roles item -->
-   @endrole
+   @endif
    <!-- /Menu items -->
 </ul>

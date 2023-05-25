@@ -1,287 +1,226 @@
 <!DOCTYPE html>
-<html lang="zxx" class="js">
-   <head>
-      <meta charset="utf-8" />
-      <meta name="author" content="Agencia APP - Alcaldía de Medellín. Desarrollado por Brayan Angarita" />
-      <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
-      <meta name="description" content="Aplicativo para reservar espacios de espacio público en Medellín - AGENCIA APP" />
-      <link rel="shortcut icon" href="{{ asset('logo_white.png') }}" />
-      <title>@yield('title', 'AEEP') - AGENCIA APP</title>
-      <!-- Fav Icon  -->
-      <link rel="shortcut icon" href="./images/favicon.png" />
-      <link rel="stylesheet" href="{{ asset('assets/css/dashlite.css?ver=2.4.0')}}" />
-      <link id="skin-default" rel="stylesheet" href="{{ asset('assets/css/theme.css?ver=2.4.0')}}" />
-      <link rel="stylesheet" href="{{ asset('assets/css/custom.css')}}" />
+<html lang="en">
+<head>
+   <meta charset="UTF-8">
+   <meta http-equiv="X-UA-Compatible" content="IE=edge">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <title>@yield('title', 'AEEP') - AGENCIA APP</title>
+   <!-- Favicons -->
+  <link rel="stylesheet" href="{{ asset('assets/img/favicon.png') }}">
+  <link rel="stylesheet" href="{{ asset('assets/img/apple-touch-icon.png') }}">
+	<!-- Line Awesome CSS -->
+   <link rel="stylesheet" href="{{ asset('user/assets/css/line-awesome.min.css')}}">
+	<!-- Odometer CSS -->
+	<link rel="stylesheet" href="{{ asset('user/assets/css/odometer.css')}}">
+<!-- Google Fonts -->
+<link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Jost:300,300i,400,400i,500,500i,600,600i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i" rel="stylesheet">
 
-      @stack('styles')
-   </head>
+<!-- Vendor CSS Files -->
+<link rel="stylesheet" href="{{ asset('assets/vendor/aos/aos.css') }}">
+<link rel="stylesheet" href="{{ asset('assets/vendor/bootstrap/css/bootstrap.min.css') }}">
+<link rel="stylesheet" href="{{ asset('assets/vendor/bootstrap-icons/bootstrap-icons.css') }}">
+<link rel="stylesheet" href="{{ asset('assets/vendor/boxicons/css/boxicons.min.css') }}">
+<link rel="stylesheet" href="{{ asset('assets/vendor/glightbox/css/glightbox.min.css') }}">
+<link rel="stylesheet" href="{{ asset('assets/vendor/remixicon/remixicon.css') }}">
+<link rel="stylesheet" href="{{ asset('assets/vendor/swiper/swiper-bundle.min.css') }}">
 
-   <body class="nk-body npc-invest bg-lighter">
-      <div class="nk-app-root">
-         <!-- wrap @s -->
-         <div class="nk-wrap">
-            <!-- main header @s -->
-            <div class="nk-header nk-header-fluid is-theme">
-               <div class="container-xl wide-xl">
-                  <div class="nk-header-wrap">
-                     <div class="nk-menu-trigger mr-sm-2 d-lg-none">
-                        <a href="#" class="nk-nav-toggle nk-quick-nav-icon" data-target="headerNav"><em class="icon ni ni-menu"></em></a>
-                     </div>
 
-                     <div class="nk-header-brand">
-                        <a href="{{ url('/') }}" class="logo-link">
-                           <img class="logo-light logo-img" src="{{ asset('logo_white.png')}}" srcset="{{ asset('logo_white.png')}} 2x" alt="Puntos de AEE" />
-                           <img class="logo-dark logo-img" src="{{ asset('logo_white.png')}}" srcset="{{ asset('logo_white.png')}} 2x" alt="Puntos de AEE" />
-                        </a>
-                     </div>
-                     <!-- .nk-header-brand -->
+<!-- Template Main CSS File -->
+<link rel="stylesheet" href="{{ asset('assets/css/pan.css') }}">
+<style>
+  .fixed-top {
+  position: fixed;
+  top: 0;
+  right: 0;
+  left: 0;
+  z-index: 1030;
+  background: rgba(255, 255, 255, 0.9);
+}
+</style>
+@stack('styles')
+</head>
+<body>
+     <!-- ======= Header ======= -->
+  <header id="header" class="d-flex align-items-center">
+    <div class="container d-flex align-items-center justify-content-between">
+    <a href="{{ url('/') }}">
+    <img class="logo me-auto" src="https://app.gov.co/assets/img/Proyectos/logo-landing.png" style=" width: 200px; height: 90px;">
+    </a>
+    
 
-                     <div class="nk-header-menu" data-content="headerNav">
-                        <div class="nk-header-mobile">
-                           <div class="nk-header-brand">
-                              <a href="{{ url('/') }}" class="logo-link">
-                                 <img class="logo-light logo-img" src="{{ asset('logo_white.png')}}" srcset="{{ asset('logo_white.png')}} 2x" alt="logo" />
-                                 <img class="logo-dark logo-img" src="{{ asset('logo_white.png')}}" srcset="{{ asset('logo_white.png')}} 2x" alt="logo-dark" />
-                              </a>
-                           </div>
+      <nav id="navbar" class="navbar">
+        <ul>
+          <li class="dropdown"><a href="#"><span>Puntos AEEP</span> <i class="bi bi-chevron-down"></i></a>
+            <ul>
+              <li><a href="{{ route('panel.spaces.index') }}">Todos los puntos</a></li>
+              @if (Auth::user()->rol == 'Admin')
+              <li><a href="{{ route('panel.spaces.create') }}">Agregar punto</a></li>
+              @endif
+            </ul>
+          </li>
+          <li class="dropdown"><a href="#"><span>Solicitudes</span> <i class="bi bi-chevron-down"></i></a>
+            <ul>
+              <li><a href="{{ route('panel.bookings.index') }}">Mis solicitudes</a></li>
+            </ul>
+          </li>
+          @if (Auth::user()->rol == 'Admin')
+          <li class="dropdown"><a href="#"><span>Usuarios</span> <i class="bi bi-chevron-down"></i></a>
+            <ul>
+              <li><a href="#">Todos los usuarios</a></li>
+            </ul>
+          </li>
+          <li class="dropdown"><a href="#"><span>Roles</span> <i class="bi bi-chevron-down"></i></a>
+            <ul>
+              <li><a href="#">Todos los roles</a></li>
+            </ul>
+          </li>
+          @endif
+          <li><a class="nav-link scrollto" href="#">test</a></li>
+          <li class="dropdown">
+            <a href="#" class="user-nav-link"><i class="bi bi-person"></i>{{ Auth::user()->name }}</a>
+            <ul>
+            <li>
+               <a href="#">
+                <h6 class="overline-title-alt">Balance</h6>
+                <div class="user-balance">0 <small class="currency currency-usd">COP</small></div>
+               </a>           
+            </li>
+            <li><a href="#">Ver perfil</a></li>
+            <li><a href="#">Configuración</a></li>
+            <li>            
+               <a href="{{ route('logout') }}" onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
+                  <span>
+                     Cerrar sesión
+                  </span>
+               </a>
 
-                           <div class="nk-menu-trigger mr-n2">
-                              <a href="#" class="nk-nav-toggle nk-quick-nav-icon" data-target="headerNav"><em class="icon ni ni-arrow-left"></em></a>
-                           </div>
-                        </div>
+               <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
+               @csrf
+               </form>            
+            </li>
+            </ul>
+          </li>
+        </ul>
+        <i class="bi bi-list mobile-nav-toggle"></i>
+      </nav>
+      <!-- .navbar -->
 
-                        @include('panel.includes.menu._top-menu')
-                        <!-- .nk-menu -->
-                     </div>
-                     <!-- .nk-header-menu -->
+    </div>
+  </header>
+  <!-- End Header -->
 
-                     <div class="nk-header-tools">
-                        <ul class="nk-quick-nav">
-                           <li class="dropdown notification-dropdown">
-                              <a href="#" class="dropdown-toggle nk-quick-nav-icon" data-toggle="dropdown">
-                                 <div class="icon-status icon-status-info"><em class="icon ni ni-bell"></em></div>
-                              </a>
-                              <div class="dropdown-menu dropdown-menu-xl dropdown-menu-right dropdown-menu-s1">
-                                 <div class="dropdown-head">
-                                    <span class="sub-title nk-dropdown-title">Notificaciones</span>
-                                    <a href="#">Marcar todas como leídas</a>
-                                 </div>
-                                 <div class="dropdown-body">
-                                    <div class="nk-notification">
-                                       <div class="nk-notification-item dropdown-inner">
-                                          <div class="nk-notification-icon">
-                                             <em class="icon icon-circle bg-warning-dim ni ni-curve-down-right"></em>
-                                          </div>
-                                          <div class="nk-notification-content">
-                                             <div class="nk-notification-text">
-                                                Te damos la bienvenida a la plataforma de AEEP
-                                             </div>
-                                             <div class="nk-notification-time">Hace 1 segundo</div>
-                                          </div>
-                                       </div>
-                                    </div>
-                                    <!-- .nk-notification -->
-                                 </div>
-                                 <!-- .nk-dropdown-body -->
-                                 <div class="dropdown-foot center">
-                                    <a href="#">Ver todas</a>
-                                 </div>
-                              </div>
-                           </li>
-                           <!-- .dropdown -->
-                           <li class="dropdown user-dropdown order-sm-first">
-                              <a href="#" class="dropdown-toggle" data-toggle="dropdown">
-                                 <div class="user-toggle">
-                                    <div class="user-avatar sm">
-                                       <em class="icon ni ni-user-alt"></em>
-                                    </div>
-                                    <div class="user-info d-none d-xl-block">
-                                       <div class="user-status">
-                                          @role('Admin|Reviewer|Biller')
-                                             Colaborador
-                                          @else
-                                             Usuario
-                                          @endrole
-                                       </div>
-                                       <div class="user-name dropdown-indicator">{{ Auth::user()->name }}</div>
-                                    </div>
-                                 </div>
-                              </a>
-                              <div class="dropdown-menu dropdown-menu-md dropdown-menu-right dropdown-menu-s1 is-light">
-                                 <div class="dropdown-inner user-card-wrap bg-lighter d-none d-md-block">
-                                    <div class="user-card">
-                                       <div class="user-avatar">
-                                          <span>{{ Auth::user()->initials }}</span>
-                                       </div>
-                                       <div class="user-info">
-                                          <span class="lead-text">{{ Auth::user()->name }}</span>
-                                          <span class="sub-text">{{ Auth::user()->email }}</span>
-                                       </div>
-                                       <div class="user-action">
-                                          <a class="btn btn-icon mr-n2" href="#"><em class="icon ni ni-setting"></em></a>
-                                       </div>
-                                    </div>
-                                 </div>
-                                 <div class="dropdown-inner user-account-info">
-                                    <h6 class="overline-title-alt">Balance</h6>
-                                    <div class="user-balance">0 <small class="currency currency-usd">COP</small></div>
-                                 </div>
-                                 <div class="dropdown-inner">
-                                    <ul class="link-list">
-                                       <li>
-                                          <a href="#"><em class="icon ni ni-user-alt"></em><span>Ver perfil</span></a>
-                                       </li>
-                                       <li>
-                                          <a href="#"><em class="icon ni ni-setting-alt"></em><span>Configuración</span></a>
-                                       </li>
-                                       {{--
-                                       <li>
-                                          <a class="dark-mode-switch" href="#"><em class="icon ni ni-moon"></em><span>Modo oscuro</span></a>
-                                       </li>
-                                       --}}
-                                    </ul>
-                                 </div>
-                                 <div class="dropdown-inner">
-                                    <ul class="link-list">
-                                       <li>
-                                          <a href="{{ route('logout') }}" onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
-                                             <em class="icon ni ni-signout"></em>
-                                             <span>
-                                                {{ __('Logout') }}
-                                             </span>
-                                          </a>
+  <main id="main">
 
-                                          <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
-                                             @csrf
-                                          </form>
-                                       </li>
-                                    </ul>
-                                 </div>
-                              </div>
-                           </li>
-                           <!-- .dropdown -->
-                        </ul>
-                        <!-- .nk-quick-nav -->
-                     </div>
-                     <!-- .nk-header-tools -->
-                  </div>
-                  <!-- .nk-header-wrap -->
-               </div>
-               <!-- .container-fliud -->
-            </div>
-            <!-- main header @e -->
+    <!-- ======= Section ======= -->
+    <section id="about" class="about">
+      <div class="container">
 
-            <!-- content @s -->
-            <div class="nk-content nk-content-fluid">
-               <div class="container-xl wide-xl">
-                  <div class="nk-content-inner">
-                     <div class="nk-content-body">
-                        <div class="nk-block-head nk-block-head-sm">
-                           <div class="nk-block-between">
-                              <div class="nk-block-head-content">
-                                 <h3 class="nk-block-title page-title">@yield('title')</h3>
-                                 <div class="nk-block-des text-soft">
-                                    <p>@yield('sub_title', 'AGENCIA APP')</p>
-                                 </div>
-                              </div>
-                              <!-- .nk-block-head-content -->
-                              {{--
-                              <div class="nk-block-head-content">
-                                 <div class="toggle-wrap nk-block-tools-toggle">
-                                    <a href="#" class="btn btn-icon btn-trigger toggle-expand mr-n1" data-target="pageMenu"><em class="icon ni ni-more-v"></em></a>
+        <div class="section-title">
+          <h2>@yield('title')</h2>
+          <p>@yield('sub_title')</p>         
+        </div>
 
-                                    <div class="toggle-expand-content" data-content="pageMenu">
-                                       <ul class="nk-block-tools g-3">
-                                          <li>
-                                             <a href="#" class="btn btn-white btn-dim btn-outline-primary"><em class="icon ni ni-download-cloud"></em><span>Export</span></a>
-                                          </li>
+        <div class="row align-items-center">            
+            @yield('content')
+        </div> 
 
-                                          <li>
-                                             <a href="#" class="btn btn-white btn-dim btn-outline-primary"><em class="icon ni ni-reports"></em><span>Reports</span></a>
-                                          </li>
-
-                                          <li class="nk-block-tools-opt">
-                                             <div class="drodown">
-                                                <a href="#" class="dropdown-toggle btn btn-icon btn-primary" data-toggle="dropdown"><em class="icon ni ni-plus"></em></a>
-
-                                                <div class="dropdown-menu dropdown-menu-right">
-                                                   <ul class="link-list-opt no-bdr">
-                                                      <li>
-                                                         <a href="#"><em class="icon ni ni-user-add-fill"></em><span>Add User</span></a>
-                                                      </li>
-                                                      <li>
-                                                         <a href="#"><em class="icon ni ni-coin-alt-fill"></em><span>Add Order</span></a>
-                                                      </li>
-                                                      <li>
-                                                         <a href="#"><em class="icon ni ni-note-add-fill-c"></em><span>Add Page</span></a>
-                                                      </li>
-                                                   </ul>
-                                                </div>
-                                             </div>
-                                          </li>
-                                       </ul>
-                                    </div>
-                                    <!-- .toggle-expand-content -->
-                                 </div>
-                                 <!-- .toggle-wrap -->
-                              </div>
-                              <!-- .nk-block-head-content -->
-                              --}}
-                           </div>
-                           <!-- .nk-block-between -->
-                        </div>
-                        <!-- .nk-block-head -->
-
-                        <div class="nk-block">
-                           @yield('content')
-                        </div>
-                     </div>
-                  </div>
-               </div>
-            </div>
-            <!-- content @e -->
-
-            <!-- footer @s -->
-            <div class="nk-footer nk-footer-fluid bg-lighter">
-               <div class="container-xl">
-                  <div class="nk-footer-wrap">
-                     <div class="nk-footer-copyright">
-                        &copy; {{ date('Y') }} AGENCIA APP
-                     </div>
-                     <div class="nk-footer-links">
-                        <ul class="nav nav-sm">
-                           <li class="nav-item"><a class="nav-link" href="#">Términos y condiciones</a></li>
-                           <li class="nav-item"><a class="nav-link" href="#">Privacidad</a></li>
-                           <li class="nav-item"><a class="nav-link" href="#">Ayuda</a></li>
-                        </ul>
-                     </div>
-                  </div>
-               </div>
-            </div>
-            <!-- footer @e -->
-         </div>
-         <!-- wrap @e -->
       </div>
+    </section>
+    <!-- End Section -->
 
-      <!-- app-root @e -->
-      <!-- JavaScript -->
+  </main>
 
-      <script src="{{ asset('assets/js/bundle.js?ver=2.4.0')}}"></script>
-      <script src="{{ asset('assets/js/scripts.js?ver=2.4.0')}}"></script>
-      
-      <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+  <!-- ======= Footer ======= -->
+  <footer id="footer">
+  <div class="footer-top">
+      <div class="container">
+        <div class="row">
 
-      @if(Session::has('info'))
-      <script type="text/javascript">
-         swal({
-            title: "¡Atención!",
-            text: "{{ Session::get('info')[1] }}",
-            icon: "{{ Session::get('info')[0] }}",
-            button: "Aceptar",
-         });
-      </script>
-      @endif
+          <div class="col-lg-4 col-md-6">
+            <div class="footer-info">
+              <h3>Agencia APP</h3>
+              <p>
+			  Medellin / Antioquia <br>
+			  Carrera 55 # 42-180 Local 203 Edificio Plaza de La Libertad<br><br>
+                <strong>Telefono:</strong> +57 604 448 1740<br>
+                <strong>Correo:</strong> info@app.gov.co<br>
+              </p>
+        
+            </div>
+          </div>
 
-      @stack('scripts')
-   </body>
+          <div class="col-lg-4 col-md-6 footer-links">
+            <h4>Enlaces de interés</h4>
+            <ul>
+			<li>
+											<a href="#">
+												<i class="las la-angle-right"></i>
+												Puntos de aprovechamiento
+											</a>
+										</li>
+										<li>
+											<a href="#">
+												<i class="las la-angle-right"></i>
+												Términos y condiciones
+											</a>
+										</li>
+										<li>
+											<a href="#">
+												<i class="las la-angle-right"></i>
+												Políticas de privacidad y de uso
+											</a>
+										</li>
+										<li>
+											<a href="#">
+												<i class="las la-angle-right"></i>
+												Contáctanos 
+											</a>
+										</li>
+            </ul>
+          </div>
+
+          <div class="col-lg-4 col-md-6 footer-newsletter">
+            <h4>Síguenos en nuestras redes sociales.</h4>
+            <!-- <p>Tamen quem nulla quae legam multos aute sint culpa legam noster magna</p>
+            <form action="" method="post">
+              <input type="email" name="email"><input type="submit" value="Subscribe">
+            </form> -->
+			<div class="social-links mt-3">
+				<a href="#" ><i class="lab la-twitter"></i></a>
+                <a href="#" ><i class="lab la-facebook-f"></i></a>
+                <a href="#" ><i class="lab la-instagram"></i></a>                
+                <a href="#" ><i class="lab la-youtube"></i></a>
+              </div>
+          </div>
+
+        </div>
+      </div>
+    </div>
+    <div class="container">
+      <div class="copyright">
+        &copy; Copyright <strong><span>Agencia APP - Alcaldía de Medellín</span></strong>. Todos los derechos reservados
+      </div>
+    </div>
+  </footer>
+  <!-- End Footer -->
+
+      <!-- Go Top -->
+      <div class="go-top">
+			<i class="las la-angle-double-up"></i>
+		</div>
+		<!-- End Go Top -->
+
+
+  <!-- scripts -->
+<script src="{{ asset('assets/vendor/aos/aos.js')}}"></script>
+<script src="{{ asset('assets/vendor/bootstrap/js/bootstrap.bundle.min.js')}}"></script>
+<script src="{{ asset('assets/vendor/glightbox/js/glightbox.min.js')}}"></script>
+<script src="{{ asset('assets/vendor/isotope-layout/isotope.pkgd.min.js')}}"></script>
+<script src="{{ asset('assets/vendor/swiper/swiper-bundle.min.js')}}"></script>
+<script src="{{ asset('assets/vendor/php-email-form/validate.js')}}"></script>
+
+  <!-- Template Main JS File -->
+  <script src="{{ asset('assets/js/aeep.js')}}"></script>
+  @stack('scripts')
+</body>
 </html>

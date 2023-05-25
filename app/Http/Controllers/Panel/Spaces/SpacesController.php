@@ -12,18 +12,25 @@ use Illuminate\Support\Facades\Session;
 use Illuminate\Support\Str;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Storage;
+use Illuminate\Pagination\Paginator;
 
 class SpacesController extends Controller
 {
    public function __construct()
    {
-      $this->middleware(['auth', 'role:Admin|Biller|Collaborator|Reviewer'])->except(['index', 'show']);
+      $this->middleware(function ($request, $next) {
+         $user = Auth::user();
+         if ($user && in_array($user->rol, ['Admin', 'Biller', 'Collaborator', 'Reviewer'])) {
+             return $next($request);
+         }
+         abort(403, 'Unauthorized');
+     })->except(['index', 'show']);
    }
 
    public function index()
    {
-      $spaces = Space::with('mixture')->latest()->get();
-      return view('panel.points.index', compact('spaces'));
+       $spaces = Space::with('mixture')->latest()->paginate(6);
+       return view('panel.points.index', compact('spaces'));
    }
 
    public function create()

@@ -19,14 +19,160 @@
 		<!-- Odometer CSS -->
 		<link rel="stylesheet" href="{{ asset('user/assets/css/odometer.css')}}">
 		<!-- Stylesheet CSS -->
-		<link rel="stylesheet" href="{{ asset('user/assets/css/style.css')}}">
-		<link rel="stylesheet" href="{{ asset('user/assets/css/custom.css')}}">
+		<link rel="stylesheet" href="{{ asset('user/assets/css/styl.css')}}">
+		<link rel="stylesheet" href="{{ asset('user/assets/css/custo.css')}}">
 		<!-- Stylesheet Responsive CSS -->
 		<link rel="stylesheet" href="{{ asset('user/assets/css/responsive.css')}}">
 		<!-- Favicon -->
 		<link rel="icon" type="images/png" href="{{ asset('logo_white.png')}}">
 		<!-- Title -->
 		<title>AEEP - Puntos de aprovechamiento - Agencia APP</title>
+		<style>
+			
+/*--------------------------------------------------------------
+# Footer
+--------------------------------------------------------------*/
+#footer {
+  background: #f3f3f3;
+  padding: 0 0 30px 0;
+  color: #000;
+  font-size: 14px;
+}
+
+#footer .footer-top {
+  background: #f3f3f3;
+  border-bottom: 1px solid #222222;
+  padding: 60px 0 30px 0;
+}
+
+#footer .footer-top .footer-info {
+  margin-bottom: 30px;
+}
+
+#footer .footer-top .footer-info h3 {
+  font-size: 28px;
+  margin: 0 0 20px 0;
+  padding: 2px 0 2px 0;
+  line-height: 1;
+  font-weight: 700;
+  text-transform: inherit;
+}
+
+#footer .footer-top .footer-info h3 span {
+  color: #ffc451;
+}
+
+#footer .footer-top .footer-info p {
+  font-size: 14px;
+  line-height: 24px;
+  margin-bottom: 0;
+  font-family: "Raleway", sans-serif;
+  color: #000;
+}
+
+#footer .footer-top .social-links a {
+  font-size: 18px;
+  display: inline-block;
+  background: #b3b3b3;
+  color: #000000;
+  line-height: 1;
+  padding: 8px 0;
+  margin-right: 4px;
+  border-radius: 4px;
+  text-align: center;
+  width: 36px;
+  height: 36px;
+  transition: 0.3s;
+}
+
+#footer .footer-top .social-links a:hover {
+  background: #3498db;
+  color: #151515;
+  text-decoration: none;
+}
+
+#footer .footer-top h4 {
+  font-size: 16px;
+  font-weight: 600;
+  color: #000;
+  position: relative;
+  padding-bottom: 12px;
+}
+
+#footer .footer-top .footer-links {
+  margin-bottom: 30px;
+}
+
+#footer .footer-top .footer-links ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+#footer .footer-top .footer-links ul i {
+  padding-right: 2px;
+  color: #3498db;
+  font-size: 18px;
+  line-height: 1;
+}
+
+#footer .footer-top .footer-links ul li {
+  padding: 10px 0;
+  display: flex;
+  align-items: center;
+}
+
+#footer .footer-top .footer-links ul li:first-child {
+  padding-top: 0;
+}
+
+#footer .footer-top .footer-links ul a {
+  color: #000;
+  transition: 0.3s;
+  display: inline-block;
+  line-height: 1;
+}
+
+
+#footer .footer-top .footer-newsletter form {
+  margin-top: 30px;
+  background: #fff;
+  padding: 6px 10px;
+  position: relative;
+  border-radius: 4px;
+}
+
+#footer .footer-top .footer-newsletter form input[type=email] {
+  border: 0;
+  padding: 4px;
+  width: calc(100% - 110px);
+}
+
+#footer .footer-top .footer-newsletter form input[type=submit] {
+  position: absolute;
+  top: 0;
+  right: -2px;
+  bottom: 0;
+  border: 0;
+  background: none;
+  font-size: 16px;
+  padding: 0 20px;
+  background: #ffc451;
+  color: #151515;
+  transition: 0.3s;
+  border-radius: 0 4px 4px 0;
+}
+
+#footer .footer-top .footer-newsletter form input[type=submit]:hover {
+  background: #ffcd6b;
+}
+
+#footer .copyright {
+  text-align: center;
+  padding-top: 30px;
+}
+
+		</style>
 	</head>
 
 	<body data-spy="scroll" data-offset="70">
@@ -43,8 +189,9 @@
 		<!-- Nabvar Area -->
 		<nav class="navbar fixed-top navbar-expand-lg main-navbar app-nav">
 			<div class="container">
-				<a class="navbar-brand" href="{{ url('/') }}">
-					<img src="{{ asset('logo_white.png')}}" alt="logo" width="100">
+				<a href="{{ url('/') }}">
+					<img src="https://app.gov.co/assets/img/Proyectos/logo-landing.png" alt="logo" style=" width: 200px;
+    height: 90px;">
 				</a>
 
 				<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -202,51 +349,29 @@
 			</div>
 		</div>
 
-		<!-- Footer Area -->
-		<footer class="footer-area pt-200"> 
-			<div class="container">
-				<div class="row">
-					<div class="col-lg-4 col-sm-6">
-						<div class="footer-widget">
-							<div class="logo">
-								<img src="{{ asset('logo_white.png')}}" alt="logo" width="100">
-							</div>
+	  <!-- ======= Footer ======= -->
+	  <footer id="footer">
+    <div class="footer-top">
+      <div class="container">
+        <div class="row">
 
-							<p>Síguenos en nuestras redes sociales.</p>
+          <div class="col-lg-4 col-md-6">
+            <div class="footer-info">
+              <h3>Agencia APP</h3>
+              <p>
+			  Medellin / Antioquia <br>
+			  Carrera 55 # 42-180 Local 203 Edificio Plaza de La Libertad<br><br>
+                <strong>Telefono:</strong> +57 604 448 1740<br>
+                <strong>Correo:</strong> info@app.gov.co<br>
+              </p>
+        
+            </div>
+          </div>
 
-							<ul class="footer-social">
-								<li>
-									<a class="bg-1" href="#" target="_blank">
-										<i class="lab la-facebook-f bg-1"></i>
-									</a>
-								</li>
-								<li>
-									<a class="bg-2" href="#" target="_blank">
-										<i class="lab la-twitter bg-2"></i>
-									</a>
-								</li>
-								<li>
-									<a class="bg-3" href="#" target="_blank">
-										<i class="lab la-linkedin-in bg-3"></i>
-									</a>
-								</li>
-								<li>
-									<a class="bg-4" href="#" target="_blank">
-										<i class="lab la-instagram bg-4"></i>
-									</a>
-								</li>
-							</ul>
-						</div>
-					</div>
-
-					<div class="col-lg-5 col-sm-6">
-						<div class="row">
-
-							<div class="col-lg-6 col-sm-6">
-								<div class="footer-widget">
-									<h3 class="title">Enlaces de interés</h3>
-									<ul class="footer-text">
-										<li>
+          <div class="col-lg-4 col-md-6 footer-links">
+            <h4>Enlaces de interés</h4>
+            <ul>
+			<li>
 											<a href="#">
 												<i class="las la-angle-right"></i>
 												Puntos de aprovechamiento
@@ -270,33 +395,44 @@
 												Contáctanos 
 											</a>
 										</li>
-									</ul>
-								</div>
-							</div>
-						</div>
-					</div>
+            </ul>
+          </div>
 
-					<div class="col-lg-3 col-sm-6 offset-sm-4 offset-lg-0">
-						<div class="footer-widget">
-							<h3 class="title">Descargar (Próximamente)</h3>
-							<div class="footer-image">
-								<a href="#">
-									<img src="user/assets/images/app-img/google-play.png" alt="Image">
-								</a>
-								<a href="#">
-									<img src="user/assets/images/app-img/app-store.png" alt="Image">
-								</a>
-							</div>
-						</div>
-					</div>
-				</div>
+          <!-- <div class="col-lg-3 col-md-6 footer-links">
+            <h4>Our Services</h4>
+            <ul>
+              <li><i class="bx bx-chevron-right"></i> <a href="#">Web Design</a></li>
+              <li><i class="bx bx-chevron-right"></i> <a href="#">Web Development</a></li>
+              <li><i class="bx bx-chevron-right"></i> <a href="#">Product Management</a></li>
+              <li><i class="bx bx-chevron-right"></i> <a href="#">Marketing</a></li>
+              <li><i class="bx bx-chevron-right"></i> <a href="#">Graphic Design</a></li>
+            </ul>
+          </div> -->
 
-				<div class="copyright-text">
-				<p>Copyright {{ date('Y') }} Agencia APP - Alcaldía de Medellín. Derechos reservados <a href="https://app.gov.co" target="_blank">Agencia APP</a></p>
-				</div>
-			</div>
-		</footer>
-		<!-- End Footer Area -->
+          <div class="col-lg-4 col-md-6 footer-newsletter">
+            <h4>Síguenos en nuestras redes sociales.</h4>
+            <!-- <p>Tamen quem nulla quae legam multos aute sint culpa legam noster magna</p>
+            <form action="" method="post">
+              <input type="email" name="email"><input type="submit" value="Subscribe">
+            </form> -->
+			<div class="social-links mt-3">
+				<a href="#" ><i class="lab la-twitter"></i></a>
+                <a href="#" ><i class="lab la-facebook-f"></i></a>
+                <a href="#" ><i class="lab la-instagram"></i></a>                
+                <a href="#" ><i class="lab la-youtube"></i></a>
+              </div>
+          </div>
+
+        </div>
+      </div>
+    </div>
+
+    <div class="container">
+      <div class="copyright">
+        &copy; Copyright <strong><span>Agencia APP - Alcaldía de Medellín</span></strong>. Todos los derechos reservados
+      </div>
+    </div>
+  </footer><!-- End Footer -->
 
 		<!-- Go Top -->
 		<div class="go-top">

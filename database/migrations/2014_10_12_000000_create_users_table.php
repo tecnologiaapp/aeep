@@ -19,7 +19,7 @@ class CreateUsersTable extends Migration
          $table->string('email')->unique();
          $table->timestamp('email_verified_at')->nullable();
          $table->string('password');
-
+         $table->enum('rol', ['Admin', 'Reviewer', 'Biller','Collaborator'])->default('Collaborator');
          $table->unsignedBigInteger('document_type');
          $table->unsignedBigInteger('population_group_id')->default(1);
 
@@ -27,7 +27,7 @@ class CreateUsersTable extends Migration
 
          $table->string('document_number', 50);
          $table->string('nit')->nullable();
-         $table->boolean('active')->default(0);
+         $table->boolean('active')->default(1);
          $table->string('company_name')->nullable();
          $table->string('know')->default('Otro');
 
